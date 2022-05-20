@@ -1,0 +1,76 @@
+﻿@model IEnumerable<CustomerViewModel>
+
+<h1>List of Customers</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Id)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Age)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Active)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CashBalanceFloat)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CashBalanceDouble)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CashBalanceDecimal)
+            </th>
+            <th>
+                Actions
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @if (Model != null && Model.Count() > 0)
+        {
+            foreach (var item in Model) 
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Id)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Name)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Age)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Active)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.CashBalanceFloat)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.CashBalanceDouble)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.CashBalanceDecimal)
+                    </td>
+                    <td>
+                        @Html.ActionLink("Details", "Details", new { id=item.Id })
+                    </td>
+                </tr>
+            }
+        }
+        else
+        {
+            <tr>
+                <td colspan="8" style="text-align:center;">
+                    No customers currently registered
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
