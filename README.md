@@ -11,3 +11,13 @@
 <ul type="disc">
   <li>.Net 5</li>
 </ul>
+
+***
+
+<h2>Bibliotecas (principais):</h2>
+<ul type="disc">
+  <li>Google.Protobuf</li>
+  <li>Grpc.AspNetCore.Server</li>
+  <li>Grpc.Net.ClientFactory</li>
+  <li>Grpc.Tools</li>
+</ul>
