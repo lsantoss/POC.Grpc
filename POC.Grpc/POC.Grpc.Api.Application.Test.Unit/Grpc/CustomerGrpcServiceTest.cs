@@ -1,7 +1,7 @@
 ﻿using Google.Protobuf.WellKnownTypes;
 using NUnit.Framework;
 using POC.Grpc.Api.Application.Grpc;
-using POC.Grpc.Lib.Proto.Messages.Request;
+using POC.Grpc.Lib.Proto.Common.MessagesRequest;
 using POC.Grpc.Test.Base.Base;
 using POC.Grpc.Test.Base.Constants;
 using POC.Grpc.Test.Base.Extensions;

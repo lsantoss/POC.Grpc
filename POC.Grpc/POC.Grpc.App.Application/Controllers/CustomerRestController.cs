@@ -10,13 +10,13 @@ namespace POC.Grpc.App.Application.Controllers
 
         public CustomerRestController(ICustomerRestService customerRestService) => _customerRestService = customerRestService;
 
-        public async Task<ActionResult> Index()
+        public async Task<IActionResult> Index()
         {
             var customers = await _customerRestService.List();
             return View(customers);
         }
 
-        public async Task<ActionResult> Details(long id)
+        public async Task<IActionResult> Details(long id)
         {
             var customer = await _customerRestService.Get(id);
             return View(customer);

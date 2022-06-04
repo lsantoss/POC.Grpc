@@ -1,4 +1,4 @@
-﻿using POC.Grpc.Lib.Proto.CustomTypes;
+﻿using POC.Grpc.Lib.Proto.Common.CustomTypes;
 
 namespace POC.Grpc.Lib.Mappers
 {

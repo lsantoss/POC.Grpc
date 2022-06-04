@@ -1,6 +1,6 @@
 syntax = "proto3";
 
-option csharp_namespace = "POC.Grpc.Lib.Proto.CustomTypes";
+option csharp_namespace = "POC.Grpc.Lib.Proto.Common.CustomTypes";
 
 // Example: 12345.6789 -> { units = 12345, nanos = 678900000 }
 message DecimalGrpc {

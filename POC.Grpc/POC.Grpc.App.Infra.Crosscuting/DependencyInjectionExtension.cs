@@ -5,7 +5,7 @@ using POC.Grpc.App.Domain.Customers.Interfaces.Services.Rest;
 using POC.Grpc.App.Infra.Service.Services.Grpc;
 using POC.Grpc.App.Infra.Service.Services.Rest;
 using System;
-using static POC.Grpc.Lib.Proto.Services.CustomerService;
+using static POC.Grpc.Lib.Proto.Customers.Services.CustomerService;
 
 namespace POC.Grpc.App.Infra.Crosscuting
 {

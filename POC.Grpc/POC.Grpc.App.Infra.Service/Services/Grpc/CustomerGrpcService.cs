@@ -2,10 +2,10 @@
 using POC.Grpc.App.Domain.Customers.Interfaces.Services.Grpc;
 using POC.Grpc.App.Domain.Customers.Mappers;
 using POC.Grpc.App.Domain.Customers.Models;
-using POC.Grpc.Lib.Proto.Messages.Request;
+using POC.Grpc.Lib.Proto.Common.MessagesRequest;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using static POC.Grpc.Lib.Proto.Services.CustomerService;
+using static POC.Grpc.Lib.Proto.Customers.Services.CustomerService;
 
 namespace POC.Grpc.App.Infra.Service.Services.Grpc
 {

@@ -20,18 +20,6 @@
         "HTTP2_PORT": "6000"
       }
     },
-    "SelfHost": {
-      "commandName": "Project",
-      "launchBrowser": true,
-      "launchUrl": "index.html",
-      "applicationUrl": "http://localhost:5000/",
-      "environmentVariables": {
-        "ASPNETCORE_ENVIRONMENT": "Development",
-        "RUNTIME_ENVIRONMENT_NAME": "dev",
-        "HTTP1_PORT": "5000",
-        "HTTP2_PORT": "6000"
-      }
-    },
     "POC.GRPC.API": {
       "commandName": "Project",
       "launchBrowser": true,
@@ -51,6 +39,18 @@
       "launchUrl": "{Scheme}://{ServiceHost}:{ServicePort}/index.html",
       "publishAllPorts": true,
       "useSSL": true
+    },
+    "SelfHost": {
+      "commandName": "Project",
+      "launchBrowser": true,
+      "launchUrl": "index.html",
+      "applicationUrl": "http://localhost:5000/",
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development",
+        "RUNTIME_ENVIRONMENT_NAME": "dev",
+        "HTTP1_PORT": "5000",
+        "HTTP2_PORT": "6000"
+      }
     }
   }
 }

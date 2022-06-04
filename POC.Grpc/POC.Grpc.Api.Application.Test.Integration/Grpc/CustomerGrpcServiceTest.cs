@@ -1,11 +1,11 @@
 ﻿using Google.Protobuf.WellKnownTypes;
 using NUnit.Framework;
-using POC.Grpc.Lib.Proto.Messages.Request;
+using POC.Grpc.Lib.Proto.Common.MessagesRequest;
 using POC.Grpc.Test.Base.Base;
 using POC.Grpc.Test.Base.Extensions;
 using System;
 using System.Threading.Tasks;
-using static POC.Grpc.Lib.Proto.Services.CustomerService;
+using static POC.Grpc.Lib.Proto.Customers.Services.CustomerService;
 
 namespace POC.Grpc.Api.Application.Test.Integration.Grpc
 {

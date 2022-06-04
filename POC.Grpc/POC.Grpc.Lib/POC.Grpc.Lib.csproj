@@ -26,10 +26,10 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Protobuf Include="customTypes.proto" GrpcServices="Both" />
-    <Protobuf Include="messagesRequest.proto" GrpcServices="Both" />
-    <Protobuf Include="messagesResponse.proto" GrpcServices="Both" />
-    <Protobuf Include="services.proto" GrpcServices="Both" />
+    <Protobuf Include="Proto\Common\customTypes.proto" GrpcServices="Both" />
+    <Protobuf Include="Proto\Common\messagesRequest.proto" GrpcServices="Both" />
+    <Protobuf Include="Proto\Customers\messagesResponse.proto" GrpcServices="Both" />
+    <Protobuf Include="Proto\Customers\services.proto" GrpcServices="Both" />
   </ItemGroup>
   
 </Project>

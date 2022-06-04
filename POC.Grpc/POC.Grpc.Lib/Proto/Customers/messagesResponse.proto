@@ -1,8 +1,8 @@
 syntax = "proto3";
 
-import "customTypes.proto";
+import "Proto/Common/customTypes.proto";
 
-option csharp_namespace = "POC.Grpc.Lib.Proto.Messages.Response";
+option csharp_namespace = "POC.Grpc.Lib.Proto.Customers.MessagesResponse";
 
 message CustomerResponse {
 	int64 id = 1;

@@ -17,7 +17,10 @@ namespace POC.Grpc.Api.Application.Controllers
         public IActionResult List()
         {
             var customers = _repository.List();
-            return StatusCode(200, customers);
+
+            return customers != null 
+                ? StatusCode(200, customers) 
+                : StatusCode(204);
         }
 
         [HttpGet]
@@ -25,7 +28,10 @@ namespace POC.Grpc.Api.Application.Controllers
         public IActionResult Get(long id)
         {
             var customer = _repository.Get(id);
-            return StatusCode(200, customer);
+
+            return customer != null
+                ? StatusCode(200, customer)
+                : StatusCode(204);
         }
     }
 }

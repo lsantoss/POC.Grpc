@@ -1,7 +1,0 @@
-syntax = "proto3";
-
-option csharp_namespace = "POC.Grpc.Lib.Proto.Messages.Request";
-
-message GetByInt64IdRequest {
-	int64 id = 1;
-}

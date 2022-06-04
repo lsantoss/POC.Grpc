@@ -1,6 +1,6 @@
 ﻿using POC.Grpc.App.Domain.Customers.Models;
 using POC.Grpc.Lib.Mappers;
-using POC.Grpc.Lib.Proto.Messages.Response;
+using POC.Grpc.Lib.Proto.Customers.MessagesResponse;
 using System.Collections.Generic;
 
 namespace POC.Grpc.App.Domain.Customers.Mappers

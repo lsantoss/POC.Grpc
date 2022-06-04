@@ -2,9 +2,9 @@
 using Grpc.Core;
 using POC.Grpc.Api.Domain.Customers.Interfaces.Repositories;
 using POC.Grpc.Api.Domain.Customers.Mappers;
-using POC.Grpc.Lib.Proto.Messages.Request;
-using POC.Grpc.Lib.Proto.Messages.Response;
-using POC.Grpc.Lib.Proto.Services;
+using POC.Grpc.Lib.Proto.Common.MessagesRequest;
+using POC.Grpc.Lib.Proto.Customers.MessagesResponse;
+using POC.Grpc.Lib.Proto.Customers.Services;
 using System.Threading.Tasks;
 
 namespace POC.Grpc.Api.Application.Grpc

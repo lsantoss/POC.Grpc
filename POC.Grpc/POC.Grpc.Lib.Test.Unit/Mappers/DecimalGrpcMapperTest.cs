@@ -1,6 +1,6 @@
 ﻿using NUnit.Framework;
 using POC.Grpc.Lib.Mappers;
-using POC.Grpc.Lib.Proto.CustomTypes;
+using POC.Grpc.Lib.Proto.Common.CustomTypes;
 using POC.Grpc.Test.Base.Base;
 using POC.Grpc.Test.Base.Constants;
 using System;

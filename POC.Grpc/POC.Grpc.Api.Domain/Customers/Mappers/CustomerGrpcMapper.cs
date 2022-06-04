@@ -1,6 +1,6 @@
 ﻿using POC.Grpc.Api.Domain.Customers.Queries.Result;
 using POC.Grpc.Lib.Mappers;
-using POC.Grpc.Lib.Proto.Messages.Response;
+using POC.Grpc.Lib.Proto.Customers.MessagesResponse;
 using System.Collections.Generic;
 
 namespace POC.Grpc.Api.Domain.Customers.Mappers

@@ -50,7 +50,7 @@ namespace POC.Grpc.Api.Application.Test.Unit.Controllers
 
             Assert.Multiple(() =>
             {
-                Assert.That(response.StatusCode, Is.EqualTo(200));
+                Assert.That(response.StatusCode, Is.EqualTo(204));
                 Assert.That(response.Value, Is.Null);
             });
         }

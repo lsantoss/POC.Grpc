@@ -1,7 +1,7 @@
 ﻿using NUnit.Framework;
 using POC.Grpc.App.Domain.Customers.Mappers;
 using POC.Grpc.App.Domain.Customers.Models;
-using POC.Grpc.Lib.Proto.Messages.Response;
+using POC.Grpc.Lib.Proto.Customers.MessagesResponse;
 using POC.Grpc.Test.Base.Base;
 using POC.Grpc.Test.Base.Constants;
 using POC.Grpc.Test.Base.Extensions;
