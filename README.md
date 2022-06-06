@@ -1,23 +1,34 @@
 # POC.Grpc
 
-<h2>Aplicação:</h2>
-<p>Essa aplicação contém um exemplo de uma api configurada para fornecer serviços grpc e rest.</p>
-<p>Também possuindo uma aplicação front-end que contém exemplos de consumo dos serviços grpc e rest.</p>
-<p>E por fim uma biblioteca de classes que centraliza os contratos para os serviços grpc.</p>
+## Aplicação:
+Essa aplicação contém um exemplo de uma api configurada para fornecer serviços grpc e rest.
 
-***
+Também possuindo uma aplicação front-end que contém exemplos de consumo dos serviços grpc e rest.
 
-<h2>Frameworks:</h2>
-<ul type="disc">
-  <li>.Net 5</li>
-</ul>
+E por fim uma biblioteca de classes que centraliza os contratos para os serviços grpc.
 
-***
+---
 
-<h2>Bibliotecas (principais):</h2>
-<ul type="disc">
-  <li>Google.Protobuf</li>
-  <li>Grpc.AspNetCore.Server</li>
-  <li>Grpc.Net.ClientFactory</li>
-  <li>Grpc.Tools</li>
-</ul>
+## Frameworks:
+- .Net 5
+
+---
+
+## Bibliotecas (principais):
+- Google.Protobuf
+- Grpc.AspNetCore.Server
+- Grpc.Net.ClientFactory
+- Grpc.Tools
+- Newtonsoft.Json
+- Swashbuckle.AspNetCore
+- NUnit
+- NUnit3TestAdapter
+- NUnit.Analyzers
+- coverlet.collector
+- Microsoft.NET.Test.Sdk
+- Microsoft.VisualStudio.Azure.Containers.Tools.Targets
+- Microsoft.Extensions.Configuration.Abstractions
+- Microsoft.Extensions.DependencyInjection.Abstractions
+- Microsoft.Extensions.Configuration.Json
+- Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation
+- Microsoft.VisualStudio.Web.CodeGeneration.Design
