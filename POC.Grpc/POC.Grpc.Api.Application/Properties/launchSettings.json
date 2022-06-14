@@ -20,7 +20,7 @@
         "HTTP2_PORT": "6000"
       }
     },
-    "POC.GRPC.API": {
+    "POC.Grpc.Api": {
       "commandName": "Project",
       "launchBrowser": true,
       "launchUrl": "index.html",
