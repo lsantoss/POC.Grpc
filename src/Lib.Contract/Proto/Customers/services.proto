@@ -1,0 +1,12 @@
+syntax = "proto3";
+
+import "google/protobuf/empty.proto";
+import "Proto/Common/messagesRequest.proto";
+import "Proto/Customers/messagesResponse.proto";
+
+option csharp_namespace = "POC.Grpc.Lib.Contract.Proto.Customers.Services";
+
+service CustomerService {
+	rpc Get(GetByInt64IdRequest) returns (CustomerResponse);
+	rpc List(google.protobuf.Empty) returns (CustomerListResponse);
+}

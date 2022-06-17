@@ -15,20 +15,20 @@ E por fim uma biblioteca de classes que centraliza os contratos para os serviço
 ---
 
 ## Bibliotecas (principais):
+- coverlet.collector
 - Google.Protobuf
 - Grpc.AspNetCore.Server
 - Grpc.Net.ClientFactory
 - Grpc.Tools
-- Newtonsoft.Json
-- Swashbuckle.AspNetCore
-- NUnit
-- NUnit3TestAdapter
-- NUnit.Analyzers
-- coverlet.collector
+- Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation
+- Microsoft.Extensions.Configuration.Abstractions
+- Microsoft.Extensions.Configuration.Json
+- Microsoft.Extensions.DependencyInjection.Abstractions
 - Microsoft.NET.Test.Sdk
 - Microsoft.VisualStudio.Azure.Containers.Tools.Targets
-- Microsoft.Extensions.Configuration.Abstractions
-- Microsoft.Extensions.DependencyInjection.Abstractions
-- Microsoft.Extensions.Configuration.Json
-- Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation
 - Microsoft.VisualStudio.Web.CodeGeneration.Design
+- Newtonsoft.Json
+- NUnit
+- NUnit.Analyzers
+- NUnit3TestAdapter
+- Swashbuckle.AspNetCore

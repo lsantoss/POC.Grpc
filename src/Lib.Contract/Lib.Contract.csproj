@@ -1,0 +1,37 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+    <Company>LS Code</Company>
+    <Product>LSCode.Grpc</Product>
+    <Authors>LS Code</Authors>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <AssemblyName>POC.Grpc.Lib.Contract</AssemblyName>
+    <RootNamespace>POC.Grpc.Lib.Contract</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="customTypes.proto" />
+    <None Remove="messagesRequest.proto" />
+    <None Remove="messagesResponse.proto" />
+    <None Remove="services.proto" />
+  </ItemGroup>
+  
+  <ItemGroup>
+    <PackageReference Include="Google.Protobuf" Version="3.19.4" />
+    <PackageReference Include="Grpc.AspNetCore.Server" Version="2.43.0" />
+    <PackageReference Include="Grpc.Net.ClientFactory" Version="2.43.0" />
+    <PackageReference Include="Grpc.Tools" Version="2.44.0">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Protobuf Include="Proto\Common\customTypes.proto" GrpcServices="Both" />
+    <Protobuf Include="Proto\Common\messagesRequest.proto" GrpcServices="Both" />
+    <Protobuf Include="Proto\Customers\messagesResponse.proto" GrpcServices="Both" />
+    <Protobuf Include="Proto\Customers\services.proto" GrpcServices="Both" />
+  </ItemGroup>
+  
+</Project>
