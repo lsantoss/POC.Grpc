@@ -18,7 +18,7 @@ namespace POC.Grpc.Api.Application.Test.Unit.Grpc
         public CustomerGrpcServiceTest() => customerGrpcService = GetServices<CustomerGrpcService>();
 
         [Test]
-        public async Task Get_Success()
+        public async Task GetAsync_Success()
         {
             var customer = MocksTest.CustomerQueryResult;
 
@@ -44,7 +44,7 @@ namespace POC.Grpc.Api.Application.Test.Unit.Grpc
         }
 
         [Test]
-        public async Task Get_Non_Registred_Customer_Success()
+        public async Task GetAsync_Non_Registred_Customer_Success()
         {
             var request = new GetByInt64IdRequest() { Id = 0 };
             var response = await customerGrpcService.Get(request, null);
@@ -64,7 +64,7 @@ namespace POC.Grpc.Api.Application.Test.Unit.Grpc
         }
 
         [Test]
-        public async Task List_Success()
+        public async Task ListAsync_Success()
         {
             var customers = MocksTest.ListCustomerQueryResult;
 

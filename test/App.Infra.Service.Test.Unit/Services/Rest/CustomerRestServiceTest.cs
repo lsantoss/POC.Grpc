@@ -14,13 +14,13 @@ namespace POC.Grpc.App.Infra.Service.Test.Unit.Services.Rest
         public CustomerRestServiceTest() => _customerRestService = GetServices<ICustomerRestService>();
 
         [Test]
-        public async Task Get_Success()
+        public async Task GetAsync_Success()
         {
             try
             {
                 var customer = MocksTest.CustomerViewModel;
 
-                var result = await _customerRestService.Get(customer.Id);
+                var result = await _customerRestService.GetAsync(customer.Id);
 
                 TestContext.WriteLine(result.Format());
 
@@ -42,13 +42,13 @@ namespace POC.Grpc.App.Infra.Service.Test.Unit.Services.Rest
         }
 
         [Test]
-        public async Task List_Success()
+        public async Task ListAsync_Success()
         {
             try
             {
                 var customers = MocksTest.ListCustomerViewModel;
 
-                var result = await _customerRestService.List();
+                var result = await _customerRestService.ListAsync();
 
                 TestContext.WriteLine(result.Format());
 

@@ -16,7 +16,7 @@ namespace POC.Grpc.Api.Application.Test.Integration.Grpc
         public CustomerGrpcServiceTest() => _customerServiceClient = GetServices<CustomerServiceClient>();
 
         [Test]
-        public async Task Get_Success()
+        public async Task GetAsync_Success()
         {
             try
             {
@@ -45,7 +45,7 @@ namespace POC.Grpc.Api.Application.Test.Integration.Grpc
         }
 
         [Test]
-        public async Task Get_Non_Registred_Customer_Success()
+        public async Task GetAsync_Non_Registred_Customer_Success()
         {
             try
             {
@@ -72,7 +72,7 @@ namespace POC.Grpc.Api.Application.Test.Integration.Grpc
         }
 
         [Test]
-        public async Task List_Success()
+        public async Task ListAsync_Success()
         {
             try
             {

@@ -6,7 +6,7 @@ namespace POC.Grpc.App.Domain.Customers.Interfaces.Services.Rest
 {
     public interface ICustomerRestService
     {
-        Task<CustomerViewModel> Get(long id);
-        Task<List<CustomerViewModel>> List();
+        Task<CustomerViewModel> GetAsync(long id);
+        Task<List<CustomerViewModel>> ListAsync();
     }
 }

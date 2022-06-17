@@ -2,6 +2,7 @@
 using POC.Grpc.Api.Domain.Customers.Interfaces.Repositories;
 using POC.Grpc.Test.Tools.Base;
 using POC.Grpc.Test.Tools.Extensions;
+using System.Threading.Tasks;
 
 namespace POC.Grpc.Api.Infra.Data.Test.Unit.Repositories
 {
@@ -12,11 +13,11 @@ namespace POC.Grpc.Api.Infra.Data.Test.Unit.Repositories
         public CustomerRepositoryTest() => _customerRepository = GetServices<ICustomerRepository>();
 
         [Test]
-        public void Get_Success()
+        public async Task GetAsync_SuccessAsync()
         {
             var customer = MocksTest.CustomerQueryResult;
 
-            var result = _customerRepository.Get(customer.Id);
+            var result = await _customerRepository.GetAsync(customer.Id);
 
             TestContext.WriteLine(result.Format());
 
@@ -33,9 +34,9 @@ namespace POC.Grpc.Api.Infra.Data.Test.Unit.Repositories
         }
 
         [Test]
-        public void Get_Non_Registred_Customer_Success()
+        public async Task GetAsync_Non_Registred_Customer_Success()
         {
-            var result = _customerRepository.Get(0);
+            var result = await _customerRepository.GetAsync(0);
 
             TestContext.WriteLine(result.Format());
 
@@ -43,11 +44,11 @@ namespace POC.Grpc.Api.Infra.Data.Test.Unit.Repositories
         }
 
         [Test]
-        public void List_Success()
+        public async Task ListAsync_SuccessAsync()
         {
             var customers = MocksTest.ListCustomerQueryResult;
 
-            var result = _customerRepository.List();
+            var result = await _customerRepository.ListAsync();
 
             TestContext.WriteLine(result.Format());
 

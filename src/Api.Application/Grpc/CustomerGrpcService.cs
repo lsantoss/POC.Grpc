@@ -15,18 +15,16 @@ namespace POC.Grpc.Api.Application.Grpc
 
         public CustomerGrpcService(ICustomerRepository repository) => _repository = repository;
 
-        public override Task<CustomerResponse> Get(GetByInt64IdRequest request, ServerCallContext context)
+        public override async Task<CustomerResponse> Get(GetByInt64IdRequest request, ServerCallContext context)
         {
-            var customer = _repository.Get(request.Id);
-            var response = customer.MapToCustomerResponse();
-            return Task.FromResult(response);
+            var customer = await _repository.GetAsync(request.Id);
+            return customer.MapToCustomerResponse();
         }
 
-        public override Task<CustomerListResponse> List(Empty request, ServerCallContext context)
+        public override async Task<CustomerListResponse> List(Empty request, ServerCallContext context)
         {
-            var customers = _repository.List();
-            var response = customers.MapToCustomerListResponse();
-            return Task.FromResult(response);
+            var customers = await _repository.ListAsync();
+            return customers.MapToCustomerListResponse();
         }
     }
 }

@@ -14,13 +14,13 @@ namespace POC.Grpc.App.Infra.Service.Test.Unit.Services.Grpc
         public CustomerGrpcServiceTest() => _customerGrpcService = GetServices<ICustomerGrpcService>();
 
         [Test]
-        public async Task Get_Success()
+        public async Task GetAsync_Success()
         {
             try
             {
                 var customer = MocksTest.CustomerViewModel;
 
-                var result = await _customerGrpcService.Get(customer.Id);
+                var result = await _customerGrpcService.GetAsync(customer.Id);
 
                 TestContext.WriteLine(result.Format());
 
@@ -42,11 +42,11 @@ namespace POC.Grpc.App.Infra.Service.Test.Unit.Services.Grpc
         }
 
         [Test]
-        public async Task Get_Non_Registred_Customer_Success()
+        public async Task GetAsync_Non_Registred_Customer_Success()
         {
             try
             {
-                var result = await _customerGrpcService.Get(0);
+                var result = await _customerGrpcService.GetAsync(0);
 
                 TestContext.WriteLine(result.Format());
 
@@ -59,13 +59,13 @@ namespace POC.Grpc.App.Infra.Service.Test.Unit.Services.Grpc
         }
 
         [Test]
-        public async Task List_Success()
+        public async Task ListAsync_Success()
         {
             try
             {
                 var customers = MocksTest.ListCustomerViewModel;
 
-                var result = await _customerGrpcService.List();
+                var result = await _customerGrpcService.ListAsync();
 
                 TestContext.WriteLine(result.Format());
 

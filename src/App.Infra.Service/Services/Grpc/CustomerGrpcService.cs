@@ -15,19 +15,17 @@ namespace POC.Grpc.App.Infra.Service.Services.Grpc
 
         public CustomerGrpcService(CustomerServiceClient customerServiceClient) => _customerServiceClient = customerServiceClient;
 
-        public async Task<CustomerViewModel> Get(long id)
+        public async Task<CustomerViewModel> GetAsync(long id)
         {
             var request = new GetByInt64IdRequest() { Id = id };
             var customerResponse = await _customerServiceClient.GetAsync(request);
-            var customer = customerResponse.MapToCustomerViewModel();
-            return customer;
+            return customerResponse.MapToCustomerViewModel();
         }
 
-        public async Task<List<CustomerViewModel>> List()
+        public async Task<List<CustomerViewModel>> ListAsync()
         {
             var customerListResponse = await _customerServiceClient.ListAsync(new Empty());
-            var customers = customerListResponse.MapToListOfCustomerViewModel();
-            return customers;
+            return customerListResponse.MapToListOfCustomerViewModel();
         }
     }
 }

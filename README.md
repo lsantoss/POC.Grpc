@@ -16,6 +16,7 @@ E por fim uma biblioteca de classes que centraliza os contratos para os serviço
 
 ## Bibliotecas (principais):
 - coverlet.collector
+- Dapper
 - Google.Protobuf
 - Grpc.AspNetCore.Server
 - Grpc.Net.ClientFactory
@@ -32,3 +33,4 @@ E por fim uma biblioteca de classes que centraliza os contratos para os serviço
 - NUnit.Analyzers
 - NUnit3TestAdapter
 - Swashbuckle.AspNetCore
+- System.Data.SqlClient

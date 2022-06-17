@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using POC.Grpc.Api.Domain.Customers.Interfaces.Repositories;
+using System.Threading.Tasks;
 
 namespace POC.Grpc.Api.Application.Controllers
 {
@@ -14,24 +15,18 @@ namespace POC.Grpc.Api.Application.Controllers
 
         [HttpGet]
         [Route("v1/customers")]
-        public IActionResult List()
+        public async Task<IActionResult> ListAsync()
         {
-            var customers = _repository.List();
-
-            return customers != null 
-                ? StatusCode(200, customers) 
-                : StatusCode(204);
+            var customers = await _repository.ListAsync();
+            return customers != null ? StatusCode(200, customers) : StatusCode(204);
         }
 
         [HttpGet]
         [Route("v1/customers/{id}")]
-        public IActionResult Get(long id)
+        public async Task<IActionResult> GetAsync(long id)
         {
-            var customer = _repository.Get(id);
-
-            return customer != null
-                ? StatusCode(200, customer)
-                : StatusCode(204);
+            var customer = await _repository.GetAsync(id);
+            return customer != null ? StatusCode(200, customer) : StatusCode(204);
         }
     }
 }

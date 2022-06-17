@@ -12,13 +12,13 @@ namespace POC.Grpc.App.Application.Controllers
 
         public async Task<IActionResult> Index()
         {
-            var customers = await _customerRestService.List();
+            var customers = await _customerRestService.ListAsync();
             return View(customers);
         }
 
         public async Task<IActionResult> Details(long id)
         {
-            var customer = await _customerRestService.Get(id);
+            var customer = await _customerRestService.GetAsync(id);
             return View(customer);
         }
     }

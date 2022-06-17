@@ -6,6 +6,7 @@ using POC.Grpc.Test.Tools.Base;
 using POC.Grpc.Test.Tools.Extensions;
 using POC.Grpc.Test.Tools.Models.Common;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace POC.Grpc.Api.Application.Test.Unit.Controllers
 {
@@ -16,11 +17,11 @@ namespace POC.Grpc.Api.Application.Test.Unit.Controllers
         public CustomerControllerTest() => customerController = GetServices<CustomerController>();
 
         [Test]
-        public void Get_Success()
+        public async Task GetAsync_SuccessAsync()
         {
             var customer = MocksTest.CustomerQueryResult;
 
-            var actionResult = customerController.Get(customer.Id);
+            var actionResult = await customerController.GetAsync(customer.Id);
             var actionResultJson = JsonConvert.SerializeObject(actionResult);
             var response = JsonConvert.DeserializeObject<ControllerResponse<CustomerQueryResult>>(actionResultJson);
 
@@ -40,9 +41,9 @@ namespace POC.Grpc.Api.Application.Test.Unit.Controllers
         }
 
         [Test]
-        public void Get_Non_Registred_Customer_Success()
+        public async Task GetAsync_Non_Registred_Customer_SuccessAsync()
         {
-            var actionResult = customerController.Get(0);
+            var actionResult = await customerController.GetAsync(0);
             var actionResultJson = JsonConvert.SerializeObject(actionResult);
             var response = JsonConvert.DeserializeObject<ControllerResponse<CustomerQueryResult>>(actionResultJson);
 
@@ -56,11 +57,11 @@ namespace POC.Grpc.Api.Application.Test.Unit.Controllers
         }
 
         [Test]
-        public void List_Success()
+        public async Task ListAsync_SuccessAsync()
         {
             var customers = MocksTest.ListCustomerQueryResult;
 
-            var actionResult = customerController.List();
+            var actionResult = await customerController.ListAsync();
             var actionResultJson = JsonConvert.SerializeObject(actionResult);
             var response = JsonConvert.DeserializeObject<ControllerResponse<List<CustomerQueryResult>>>(actionResultJson);
 

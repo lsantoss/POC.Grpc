@@ -13,18 +13,16 @@ namespace POC.Grpc.App.Infra.Service.Services.Rest
 
         public CustomerRestService(HttpClient httpClient) => _httpClient = httpClient;
 
-        public async Task<CustomerViewModel> Get(long id)
+        public async Task<CustomerViewModel> GetAsync(long id)
         {
             var responseString = await _httpClient.GetStringAsync($"v1/customers/{id}");
-            var customer = JsonConvert.DeserializeObject<CustomerViewModel>(responseString);
-            return customer;
+            return JsonConvert.DeserializeObject<CustomerViewModel>(responseString);
         }
 
-        public async Task<List<CustomerViewModel>> List()
+        public async Task<List<CustomerViewModel>> ListAsync()
         {
             var responseString = await _httpClient.GetStringAsync($"v1/customers");
-            var customers = JsonConvert.DeserializeObject<List<CustomerViewModel>>(responseString);
-            return customers;
+            return JsonConvert.DeserializeObject<List<CustomerViewModel>>(responseString);
         }
     }
 }
