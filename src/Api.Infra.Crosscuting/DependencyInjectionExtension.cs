@@ -2,6 +2,7 @@
 using Microsoft.Extensions.DependencyInjection;
 using POC.Grpc.Api.Domain.Core.Settings;
 using POC.Grpc.Api.Domain.Customers.Interfaces.Repositories;
+using POC.Grpc.Api.Infra.Data.DataContexts;
 using POC.Grpc.Api.Infra.Data.Repositories;
 
 namespace POC.Grpc.Api.Infra.Crosscuting
@@ -11,6 +12,7 @@ namespace POC.Grpc.Api.Infra.Crosscuting
         public static IServiceCollection AddDependencies(this IServiceCollection services, IConfiguration configuration = null)
         {
             services.AddAppSettings(configuration);
+            services.AddDataContexts();
             services.AddRepositories();
             return services;
         }
@@ -20,6 +22,12 @@ namespace POC.Grpc.Api.Infra.Crosscuting
             var appSettings = new AppSettings();
             configuration.Bind(appSettings);
             services.AddSingleton(appSettings);
+            return services;
+        }
+
+        private static IServiceCollection AddDataContexts(this IServiceCollection services)
+        {
+            services.AddScoped<DataContext>();
             return services;
         }
 
