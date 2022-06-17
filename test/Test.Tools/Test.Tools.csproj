@@ -38,4 +38,8 @@
     <ProjectReference Include="..\..\src\App.Application\App.Application.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Sql\" />
+  </ItemGroup>
+
 </Project>

@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace POC.Grpc.Api.Application.Test.Unit.Controllers
 {
-    internal class CustomerControllerTest : BaseTest
+    internal class CustomerControllerTest : UnitTest
     {
         private readonly CustomerController customerController;
 
@@ -19,7 +19,7 @@ namespace POC.Grpc.Api.Application.Test.Unit.Controllers
         [Test]
         public async Task GetAsync_SuccessAsync()
         {
-            var customer = MocksTest.CustomerQueryResult;
+            var customer = MockData.CustomerQueryResult;
 
             var actionResult = await customerController.GetAsync(customer.Id);
             var actionResultJson = JsonConvert.SerializeObject(actionResult);
@@ -59,7 +59,7 @@ namespace POC.Grpc.Api.Application.Test.Unit.Controllers
         [Test]
         public async Task ListAsync_SuccessAsync()
         {
-            var customers = MocksTest.ListCustomerQueryResult;
+            var customers = MockData.ListCustomerQueryResult;
 
             var actionResult = await customerController.ListAsync();
             var actionResultJson = JsonConvert.SerializeObject(actionResult);

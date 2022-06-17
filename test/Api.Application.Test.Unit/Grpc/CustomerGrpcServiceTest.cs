@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace POC.Grpc.Api.Application.Test.Unit.Grpc
 {
-    internal class CustomerGrpcServiceTest : BaseTest
+    internal class CustomerGrpcServiceTest : UnitTest
     {
         private const decimal NanoFactor = DecimalConstants.NanoFactor;
 
@@ -20,7 +20,7 @@ namespace POC.Grpc.Api.Application.Test.Unit.Grpc
         [Test]
         public async Task GetAsync_Success()
         {
-            var customer = MocksTest.CustomerQueryResult;
+            var customer = MockData.CustomerQueryResult;
 
             var request = new GetByInt64IdRequest() { Id = customer.Id };
             var response = await customerGrpcService.Get(request, null);
@@ -66,7 +66,7 @@ namespace POC.Grpc.Api.Application.Test.Unit.Grpc
         [Test]
         public async Task ListAsync_Success()
         {
-            var customers = MocksTest.ListCustomerQueryResult;
+            var customers = MockData.ListCustomerQueryResult;
 
             var response = await customerGrpcService.List(new Empty(), null);
 

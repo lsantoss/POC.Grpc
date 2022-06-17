@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace POC.Grpc.Api.Application.Test.Integration.Controllers
 {
-    internal class CustomerControllerTest : BaseTest
+    internal class CustomerControllerTest : UnitTest
     {
         private readonly HttpClient _httpClient;
 
@@ -25,7 +25,7 @@ namespace POC.Grpc.Api.Application.Test.Integration.Controllers
         {
             try
             {
-                var customer = MocksTest.CustomerQueryResult;
+                var customer = MockData.CustomerQueryResult;
 
                 var responseString = await _httpClient.GetStringAsync($"v1/customers/{customer.Id}");
                 var response = JsonConvert.DeserializeObject<CustomerViewModel>(responseString);
@@ -72,7 +72,7 @@ namespace POC.Grpc.Api.Application.Test.Integration.Controllers
         {
             try
             {
-                var customers = MocksTest.ListCustomerQueryResult;
+                var customers = MockData.ListCustomerQueryResult;
 
                 var responseString = await _httpClient.GetStringAsync($"v1/customers");
                 var response = JsonConvert.DeserializeObject<List<CustomerViewModel>>(responseString);

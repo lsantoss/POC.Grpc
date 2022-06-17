@@ -7,7 +7,7 @@ using System;
 
 namespace POC.Grpc.Lib.Contract.Test.Unit.Mappers
 {
-    internal class DecimalGrpcMapperTest : BaseTest
+    internal class DecimalGrpcMapperTest : UnitTest
     {
         private const decimal NanoFactor = DecimalConstants.NanoFactor;
 

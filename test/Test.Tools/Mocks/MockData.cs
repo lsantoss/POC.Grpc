@@ -6,7 +6,7 @@ using System.Collections.Generic;
 
 namespace POC.Grpc.Test.Tools.Mocks
 {
-    public class MocksTest
+    public class MockData
     {
         public CustomerQueryResult CustomerQueryResult { get; }
         public List<CustomerQueryResult> ListCustomerQueryResult { get; }
@@ -15,7 +15,7 @@ namespace POC.Grpc.Test.Tools.Mocks
         public CustomerResponse CustomerResponse { get; }
         public CustomerListResponse CustomerListResponse { get; }
 
-        public MocksTest()
+        public MockData()
         {
             CustomerQueryResult = CustomerMock.GetCustomerQueryResult();
             ListCustomerQueryResult = CustomerMock.GetListCustomerQueryResult();

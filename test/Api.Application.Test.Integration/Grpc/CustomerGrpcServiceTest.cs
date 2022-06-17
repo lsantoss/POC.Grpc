@@ -9,7 +9,7 @@ using static POC.Grpc.Lib.Contract.Proto.Customers.Services.CustomerService;
 
 namespace POC.Grpc.Api.Application.Test.Integration.Grpc
 {
-    internal class CustomerGrpcServiceTest : BaseTest
+    internal class CustomerGrpcServiceTest : UnitTest
     {
         private readonly CustomerServiceClient _customerServiceClient;
 
@@ -20,7 +20,7 @@ namespace POC.Grpc.Api.Application.Test.Integration.Grpc
         {
             try
             {
-                var customer = MocksTest.CustomerResponse;
+                var customer = MockData.CustomerResponse;
 
                 var request = new GetByInt64IdRequest() { Id = customer.Id };
                 var response = await _customerServiceClient.GetAsync(request);
@@ -76,7 +76,7 @@ namespace POC.Grpc.Api.Application.Test.Integration.Grpc
         {
             try
             {
-                var customerList = MocksTest.CustomerListResponse;
+                var customerList = MockData.CustomerListResponse;
 
                 var response = await _customerServiceClient.ListAsync(new Empty());
 

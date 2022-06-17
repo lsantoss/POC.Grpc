@@ -6,20 +6,20 @@ namespace POC.Grpc.Test.Tools.Base
     [TestFixture]
     public class BaseTest : Startup
     {
-        protected MocksTest MocksTest { get; set; }
+        protected MockData MockData { get; set; }
 
-        public BaseTest() : base() => MocksTest = new MocksTest();
+        public BaseTest() : base() => MockData = new MockData();
 
         [OneTimeSetUp]
-        protected virtual void OneTimeSetUp() => MocksTest = new MocksTest();
+        protected virtual void OneTimeSetUp() => MockData = new MockData();
 
         [OneTimeTearDown]
-        protected virtual void OneTimeTearDown() => MocksTest = null;
+        protected virtual void OneTimeTearDown() => MockData = null;
 
         [SetUp]
-        protected virtual void SetUp() => MocksTest = new MocksTest();
+        protected virtual void SetUp() => MockData = new MockData();
 
         [TearDown]
-        protected virtual void TearDown() => MocksTest = null;
+        protected virtual void TearDown() => MockData = null;
     }
 }

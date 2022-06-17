@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace POC.Grpc.App.Infra.Service.Test.Unit.Services.Grpc
 {
-    internal class CustomerGrpcServiceTest : BaseTest
+    internal class CustomerGrpcServiceTest : UnitTest
     {
         private readonly ICustomerGrpcService _customerGrpcService;
 
@@ -18,7 +18,7 @@ namespace POC.Grpc.App.Infra.Service.Test.Unit.Services.Grpc
         {
             try
             {
-                var customer = MocksTest.CustomerViewModel;
+                var customer = MockData.CustomerViewModel;
 
                 var result = await _customerGrpcService.GetAsync(customer.Id);
 
@@ -63,7 +63,7 @@ namespace POC.Grpc.App.Infra.Service.Test.Unit.Services.Grpc
         {
             try
             {
-                var customers = MocksTest.ListCustomerViewModel;
+                var customers = MockData.ListCustomerViewModel;
 
                 var result = await _customerGrpcService.ListAsync();
 

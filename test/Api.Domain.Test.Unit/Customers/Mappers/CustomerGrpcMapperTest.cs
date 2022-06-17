@@ -9,7 +9,7 @@ using System.Collections.Generic;
 
 namespace POC.Grpc.Api.Domain.Test.Unit.Customers.Mappers
 {
-    internal class CustomerGrpcMapperTest : BaseTest
+    internal class CustomerGrpcMapperTest : UnitTest
     {
         private const decimal NanoFactor = DecimalConstants.NanoFactor;
 
@@ -57,7 +57,7 @@ namespace POC.Grpc.Api.Domain.Test.Unit.Customers.Mappers
         [Test]
         public void MapToCustomerResponse_Valid_Customer_Parameter_Success()
         {
-            var customer = MocksTest.CustomerQueryResult;
+            var customer = MockData.CustomerQueryResult;
 
             var result = CustomerGrpcMapper.MapToCustomerResponse(customer);
 
@@ -111,7 +111,7 @@ namespace POC.Grpc.Api.Domain.Test.Unit.Customers.Mappers
         [Test]
         public void MapToCustomerListResponse_Valid_List_Parameter_Success()
         {
-            var customers = MocksTest.ListCustomerQueryResult;
+            var customers = MockData.ListCustomerQueryResult;
 
             var result = CustomerGrpcMapper.MapToCustomerListResponse(customers);
 

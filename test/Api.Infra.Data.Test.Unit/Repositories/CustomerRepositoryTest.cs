@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace POC.Grpc.Api.Infra.Data.Test.Unit.Repositories
 {
-    internal class CustomerRepositoryTest : BaseTest
+    internal class CustomerRepositoryTest : UnitTest
     {
         private readonly ICustomerRepository _customerRepository;
 
@@ -15,7 +15,7 @@ namespace POC.Grpc.Api.Infra.Data.Test.Unit.Repositories
         [Test]
         public async Task GetAsync_SuccessAsync()
         {
-            var customer = MocksTest.CustomerQueryResult;
+            var customer = MockData.CustomerQueryResult;
 
             var result = await _customerRepository.GetAsync(customer.Id);
 
@@ -46,7 +46,7 @@ namespace POC.Grpc.Api.Infra.Data.Test.Unit.Repositories
         [Test]
         public async Task ListAsync_SuccessAsync()
         {
-            var customers = MocksTest.ListCustomerQueryResult;
+            var customers = MockData.ListCustomerQueryResult;
 
             var result = await _customerRepository.ListAsync();
 

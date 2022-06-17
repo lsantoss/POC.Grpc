@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace POC.Grpc.App.Infra.Service.Test.Unit.Services.Rest
 {
-    internal class CustomerRestServiceTest : BaseTest
+    internal class CustomerRestServiceTest : UnitTest
     {
         private readonly ICustomerRestService _customerRestService;
 
@@ -18,7 +18,7 @@ namespace POC.Grpc.App.Infra.Service.Test.Unit.Services.Rest
         {
             try
             {
-                var customer = MocksTest.CustomerViewModel;
+                var customer = MockData.CustomerViewModel;
 
                 var result = await _customerRestService.GetAsync(customer.Id);
 
@@ -46,7 +46,7 @@ namespace POC.Grpc.App.Infra.Service.Test.Unit.Services.Rest
         {
             try
             {
-                var customers = MocksTest.ListCustomerViewModel;
+                var customers = MockData.ListCustomerViewModel;
 
                 var result = await _customerRestService.ListAsync();
 

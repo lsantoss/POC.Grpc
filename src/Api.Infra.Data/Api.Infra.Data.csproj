@@ -12,7 +12,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\Api.Domain.Core\Api.Domain.Core.csproj" />
     <ProjectReference Include="..\Api.Domain.Core\Api.Domain.Core.csproj" />
     <ProjectReference Include="..\Api.Domain\Api.Domain.csproj" />
   </ItemGroup>
