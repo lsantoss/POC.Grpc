@@ -1,5 +1,5 @@
-﻿using Api.Domain.Core.Settings;
-using Dapper;
+﻿using Dapper;
+using POC.Grpc.Api.Domain.Core.Settings;
 using POC.Grpc.Api.Domain.Customers.Interfaces.Repositories;
 using POC.Grpc.Api.Domain.Customers.Queries.Result;
 using POC.Grpc.Api.Infra.Data.Repositories.Queries;
