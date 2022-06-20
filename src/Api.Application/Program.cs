@@ -36,7 +36,7 @@ namespace POC.Grpc.Api.Application
                 {
                     "local" => "Development",
                     "dev" => "Development",
-                    "qa" => "QA",
+                    "qa" => "Staging",
                     _ => "Production"
                 };
 

@@ -5,9 +5,9 @@
 
     <IsPackable>false</IsPackable>
 
-    <AssemblyName>POC.Grpc.Api.Application.Test.Unit</AssemblyName>
+    <AssemblyName>POC.Grpc.Api.Infra.Data.Test.Integration</AssemblyName>
 
-    <RootNamespace>POC.Grpc.Api.Application.Test.Unit</RootNamespace>
+    <RootNamespace>POC.Grpc.Api.Infra.Data.Test.Integration</RootNamespace>
   </PropertyGroup>
 
   <ItemGroup>

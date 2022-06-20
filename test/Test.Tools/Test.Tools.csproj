@@ -13,6 +13,9 @@
   <ItemGroup>
     <None Remove="appsettings-api.json" />
     <None Remove="appsettings-app.json" />
+    <None Remove="Sql\CreateDatabase.sql" />
+    <None Remove="Sql\CreateTablesAndProcedures.sql" />
+    <None Remove="Sql\DropTablesAndProcedures.sql" />
   </ItemGroup>
 
   <ItemGroup>
@@ -20,6 +23,15 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="appsettings-app.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Sql\CreateDatabase.sql">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Sql\CreateTablesAndProcedures.sql">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Sql\DropTablesAndProcedures.sql">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
@@ -36,10 +48,6 @@
   <ItemGroup>
     <ProjectReference Include="..\..\src\Api.Application\Api.Application.csproj" />
     <ProjectReference Include="..\..\src\App.Application\App.Application.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Sql\" />
   </ItemGroup>
 
 </Project>

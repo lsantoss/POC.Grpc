@@ -3,5 +3,5 @@
 --====================================================================================================================================
 USE [master]
 
-IF NOT EXISTS(SELECT * FROM sys.databases WHERE name = 'POC.GrpcTest')
+IF NOT EXISTS(SELECT * FROM sys.databases WHERE name = 'POC_GrpcTest')
 CREATE DATABASE POC_GrpcTest

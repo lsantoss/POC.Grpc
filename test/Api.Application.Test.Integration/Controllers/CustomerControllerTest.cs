@@ -1,115 +1,100 @@
 ﻿using Newtonsoft.Json;
 using NUnit.Framework;
-using POC.Grpc.App.Domain.Customers.Models;
+using POC.Grpc.Api.Application.Controllers;
+using POC.Grpc.Api.Domain.Customers.Queries.Result;
 using POC.Grpc.Test.Tools.Base;
 using POC.Grpc.Test.Tools.Extensions;
-using System;
+using POC.Grpc.Test.Tools.Models.Common;
 using System.Collections.Generic;
-using System.Net.Http;
 using System.Threading.Tasks;
 
 namespace POC.Grpc.Api.Application.Test.Integration.Controllers
 {
-    internal class CustomerControllerTest : UnitTest
+    internal class CustomerControllerTest : IntegrationDatabaseTest
     {
-        private readonly HttpClient _httpClient;
+        private readonly CustomerController customerController;
 
-        public CustomerControllerTest()
+        public CustomerControllerTest() => customerController = GetServices<CustomerController>();
+
+        [Test]
+        public async Task GetAsync_SuccessAsync()
         {
-            var configuration = GetConfigurationApi();
-            _httpClient = new HttpClient { BaseAddress = new Uri(configuration["BaseUrlRest"]) };
+            var customer = MockData.CustomerQueryResult;
+
+            var actionResult = await customerController.GetAsync(customer.Id);
+            var actionResultJson = JsonConvert.SerializeObject(actionResult);
+            var response = JsonConvert.DeserializeObject<ControllerResponse<CustomerQueryResult>>(actionResultJson);
+
+            TestContext.WriteLine(response.Format());
+
+            Assert.Multiple(() =>
+            {
+                Assert.That(response.StatusCode, Is.EqualTo(200));
+                Assert.That(response.Value.Id, Is.EqualTo(customer.Id));
+                Assert.That(response.Value.Name, Is.EqualTo(customer.Name));
+                Assert.That(response.Value.Age, Is.EqualTo(customer.Age));
+                Assert.That(response.Value.Active, Is.EqualTo(customer.Active));
+                Assert.That(response.Value.CashBalanceFloat, Is.EqualTo(customer.CashBalanceFloat));
+                Assert.That(response.Value.CashBalanceDouble, Is.EqualTo(customer.CashBalanceDouble));
+                Assert.That(response.Value.CashBalanceDecimal, Is.EqualTo(customer.CashBalanceDecimal));
+            });
         }
 
         [Test]
-        public async Task GetAsync_Success()
+        public async Task GetAsync_Non_Registred_Customer_SuccessAsync()
         {
-            try
+            var actionResult = await customerController.GetAsync(0);
+            var actionResultJson = JsonConvert.SerializeObject(actionResult);
+            var response = JsonConvert.DeserializeObject<ControllerResponse<CustomerQueryResult>>(actionResultJson);
+
+            TestContext.WriteLine(response.Format());
+
+            Assert.Multiple(() =>
             {
-                var customer = MockData.CustomerQueryResult;
-
-                var responseString = await _httpClient.GetStringAsync($"v1/customers/{customer.Id}");
-                var response = JsonConvert.DeserializeObject<CustomerViewModel>(responseString);
-
-                TestContext.WriteLine(response.Format());
-
-                Assert.Multiple(() =>
-                {
-                    Assert.That(response.Id, Is.EqualTo(customer.Id));
-                    Assert.That(response.Name, Is.EqualTo(customer.Name));
-                    Assert.That(response.Age, Is.EqualTo(customer.Age));
-                    Assert.That(response.Active, Is.EqualTo(customer.Active));
-                    Assert.That(response.CashBalanceFloat, Is.EqualTo(customer.CashBalanceFloat));
-                    Assert.That(response.CashBalanceDouble, Is.EqualTo(customer.CashBalanceDouble));
-                    Assert.That(response.CashBalanceDecimal, Is.EqualTo(customer.CashBalanceDecimal));
-                });
-            }
-            catch (Exception e)
-            {
-                Assert.Inconclusive(e.Message);
-            }
+                Assert.That(response.StatusCode, Is.EqualTo(204));
+                Assert.That(response.Value, Is.Null);
+            });
         }
 
         [Test]
-        public async Task GetAsync_Non_Registred_Customer_Success()
+        public async Task ListAsync_SuccessAsync()
         {
-            try
+            var customers = MockData.ListCustomerQueryResult;
+
+            var actionResult = await customerController.ListAsync();
+            var actionResultJson = JsonConvert.SerializeObject(actionResult);
+            var response = JsonConvert.DeserializeObject<ControllerResponse<List<CustomerQueryResult>>>(actionResultJson);
+
+            TestContext.WriteLine(response.Format());
+
+            Assert.Multiple(() =>
             {
-                var responseString = await _httpClient.GetStringAsync($"v1/customers/0");
-                var response = JsonConvert.DeserializeObject<CustomerViewModel>(responseString);
+                Assert.That(response.StatusCode, Is.EqualTo(200));
 
-                TestContext.WriteLine(response.Format());
+                Assert.That(response.Value[0].Id, Is.EqualTo(customers[0].Id));
+                Assert.That(response.Value[0].Name, Is.EqualTo(customers[0].Name));
+                Assert.That(response.Value[0].Age, Is.EqualTo(customers[0].Age));
+                Assert.That(response.Value[0].Active, Is.EqualTo(customers[0].Active));
+                Assert.That(response.Value[0].CashBalanceFloat, Is.EqualTo(customers[0].CashBalanceFloat));
+                Assert.That(response.Value[0].CashBalanceDouble, Is.EqualTo(customers[0].CashBalanceDouble));
+                Assert.That(response.Value[0].CashBalanceDecimal, Is.EqualTo(customers[0].CashBalanceDecimal));
 
-                Assert.That(response, Is.Null);
-            }
-            catch (Exception e)
-            {
-                Assert.Inconclusive(e.Message);
-            }
-        }
+                Assert.That(response.Value[1].Id, Is.EqualTo(customers[1].Id));
+                Assert.That(response.Value[1].Name, Is.EqualTo(customers[1].Name));
+                Assert.That(response.Value[1].Age, Is.EqualTo(customers[1].Age));
+                Assert.That(response.Value[1].Active, Is.EqualTo(customers[1].Active));
+                Assert.That(response.Value[1].CashBalanceFloat, Is.EqualTo(customers[1].CashBalanceFloat));
+                Assert.That(response.Value[1].CashBalanceDouble, Is.EqualTo(customers[1].CashBalanceDouble));
+                Assert.That(response.Value[1].CashBalanceDecimal, Is.EqualTo(customers[1].CashBalanceDecimal));
 
-        [Test]
-        public async Task ListAsync_Success()
-        {
-            try
-            {
-                var customers = MockData.ListCustomerQueryResult;
-
-                var responseString = await _httpClient.GetStringAsync($"v1/customers");
-                var response = JsonConvert.DeserializeObject<List<CustomerViewModel>>(responseString);
-
-                TestContext.WriteLine(response.Format());
-
-                Assert.Multiple(() =>
-                {
-                    Assert.That(response[0].Id, Is.EqualTo(customers[0].Id));
-                    Assert.That(response[0].Name, Is.EqualTo(customers[0].Name));
-                    Assert.That(response[0].Age, Is.EqualTo(customers[0].Age));
-                    Assert.That(response[0].Active, Is.EqualTo(customers[0].Active));
-                    Assert.That(response[0].CashBalanceFloat, Is.EqualTo(customers[0].CashBalanceFloat));
-                    Assert.That(response[0].CashBalanceDouble, Is.EqualTo(customers[0].CashBalanceDouble));
-                    Assert.That(response[0].CashBalanceDecimal, Is.EqualTo(customers[0].CashBalanceDecimal));
-
-                    Assert.That(response[1].Id, Is.EqualTo(customers[1].Id));
-                    Assert.That(response[1].Name, Is.EqualTo(customers[1].Name));
-                    Assert.That(response[1].Age, Is.EqualTo(customers[1].Age));
-                    Assert.That(response[1].Active, Is.EqualTo(customers[1].Active));
-                    Assert.That(response[1].CashBalanceFloat, Is.EqualTo(customers[1].CashBalanceFloat));
-                    Assert.That(response[1].CashBalanceDouble, Is.EqualTo(customers[1].CashBalanceDouble));
-                    Assert.That(response[1].CashBalanceDecimal, Is.EqualTo(customers[1].CashBalanceDecimal));
-
-                    Assert.That(response[2].Id, Is.EqualTo(customers[2].Id));
-                    Assert.That(response[2].Name, Is.EqualTo(customers[2].Name));
-                    Assert.That(response[2].Age, Is.EqualTo(customers[2].Age));
-                    Assert.That(response[2].Active, Is.EqualTo(customers[2].Active));
-                    Assert.That(response[2].CashBalanceFloat, Is.EqualTo(customers[2].CashBalanceFloat));
-                    Assert.That(response[2].CashBalanceDouble, Is.EqualTo(customers[2].CashBalanceDouble));
-                    Assert.That(response[2].CashBalanceDecimal, Is.EqualTo(customers[2].CashBalanceDecimal));
-                });
-            }
-            catch (Exception e)
-            {
-                Assert.Inconclusive(e.Message);
-            }
+                Assert.That(response.Value[2].Id, Is.EqualTo(customers[2].Id));
+                Assert.That(response.Value[2].Name, Is.EqualTo(customers[2].Name));
+                Assert.That(response.Value[2].Age, Is.EqualTo(customers[2].Age));
+                Assert.That(response.Value[2].Active, Is.EqualTo(customers[2].Active));
+                Assert.That(response.Value[2].CashBalanceFloat, Is.EqualTo(customers[2].CashBalanceFloat));
+                Assert.That(response.Value[2].CashBalanceDouble, Is.EqualTo(customers[2].CashBalanceDouble));
+                Assert.That(response.Value[2].CashBalanceDecimal, Is.EqualTo(customers[2].CashBalanceDecimal));
+            });
         }
     }
 }
