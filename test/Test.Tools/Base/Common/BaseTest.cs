@@ -1,7 +1,7 @@
 ﻿using NUnit.Framework;
 using POC.Grpc.Test.Tools.Mocks;
 
-namespace POC.Grpc.Test.Tools.Base
+namespace POC.Grpc.Test.Tools.Base.Common
 {
     [TestFixture]
     public class BaseTest : Startup

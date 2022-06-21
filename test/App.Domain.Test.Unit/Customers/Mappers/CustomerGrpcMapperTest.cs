@@ -2,7 +2,7 @@
 using POC.Grpc.App.Domain.Customers.Mappers;
 using POC.Grpc.App.Domain.Customers.Models;
 using POC.Grpc.Lib.Contract.Proto.Customers.MessagesResponse;
-using POC.Grpc.Test.Tools.Base;
+using POC.Grpc.Test.Tools.Base.Unit;
 using POC.Grpc.Test.Tools.Constants;
 using POC.Grpc.Test.Tools.Extensions;
 using System.Collections.Generic;

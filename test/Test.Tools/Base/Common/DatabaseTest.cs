@@ -5,10 +5,9 @@ using System;
 using System.Data.SqlClient;
 using System.IO;
 
-namespace POC.Grpc.Test.Tools.Base
+namespace POC.Grpc.Test.Tools.Base.Common
 {
-    [TestFixture]
-    public class IntegrationDatabaseTest : BaseTest
+    public class DatabaseTest : BaseTest
     {
         private readonly string _connectionString;
         private readonly string _connectionStringReal;
@@ -16,7 +15,7 @@ namespace POC.Grpc.Test.Tools.Base
         private readonly string _scriptCreateTablesPath;
         private readonly string _scriptDropTablesPath;
 
-        public IntegrationDatabaseTest() : base()
+        public DatabaseTest() : base()
         {
             var configuration = GetConfigurationApi();
             var baseDirectory = AppDomain.CurrentDomain.BaseDirectory;
@@ -45,6 +44,7 @@ namespace POC.Grpc.Test.Tools.Base
         private void InitializeData()
         {
             MockData = new MockData();
+            DropTablesAndProcedures();
             CreateTablesAndProcedures();
         }
 

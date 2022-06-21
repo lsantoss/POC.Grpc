@@ -2,7 +2,7 @@
 using NUnit.Framework;
 using POC.Grpc.Api.Application.Controllers;
 using POC.Grpc.Api.Domain.Customers.Queries.Result;
-using POC.Grpc.Test.Tools.Base;
+using POC.Grpc.Test.Tools.Base.Integration;
 using POC.Grpc.Test.Tools.Extensions;
 using POC.Grpc.Test.Tools.Models.Common;
 using System.Collections.Generic;
@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace POC.Grpc.Api.Application.Test.Integration.Controllers
 {
-    internal class CustomerControllerTest : IntegrationDatabaseTest
+    internal class CustomerControllerTest : IntegrationTest
     {
         private readonly CustomerController customerController;
 

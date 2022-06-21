@@ -1,37 +1,31 @@
 {
   "$schema": "http://json.schemastore.org/launchsettings.json",
-  "iisSettings": {
-    "windowsAuthentication": false,
-    "anonymousAuthentication": true,
-    "iisExpress": {
-      "applicationUrl": "http://localhost:55794",
-      "sslPort": 44384
-    }
-  },
   "profiles": {
-    "IIS Express": {
-      "commandName": "IISExpress",
-      "launchBrowser": true,
-      "launchUrl": "index.html",
-      "environmentVariables": {
-        "ASPNETCORE_ENVIRONMENT": "Development",
-        "RUNTIME_ENVIRONMENT_NAME": "dev",
-        "HTTP1_PORT": "5000",
-        "HTTP2_PORT": "6000"
-      }
-    },
-    "POC.Grpc.Api": {
+    "POC.Grpc.Api DEV": {
       "commandName": "Project",
       "launchBrowser": true,
       "launchUrl": "index.html",
-      "applicationUrl": "http://localhost:5000/",
-      "dotnetRunMessages": "true",
       "environmentVariables": {
-        "ASPNETCORE_ENVIRONMENT": "Development",
-        "RUNTIME_ENVIRONMENT_NAME": "dev",
         "HTTP1_PORT": "5000",
-        "HTTP2_PORT": "6000"
-      }
+        "HTTP2_PORT": "6000",
+        "ASPNETCORE_ENVIRONMENT": "Development",
+        "RUNTIME_ENVIRONMENT_NAME": "development"
+      },
+      "applicationUrl": "http://localhost:5000/",
+      "dotnetRunMessages": "true"
+    },
+    "POC.Grpc.Api TEST": {
+      "commandName": "Project",
+      "launchBrowser": true,
+      "launchUrl": "index.html",
+      "environmentVariables": {
+        "HTTP1_PORT": "5000",
+        "HTTP2_PORT": "6000",
+        "ASPNETCORE_ENVIRONMENT": "Staging",
+        "RUNTIME_ENVIRONMENT_NAME": "staging"
+      },
+      "applicationUrl": "http://localhost:5000/",
+      "dotnetRunMessages": "true"
     },
     "Docker": {
       "commandName": "Docker",
@@ -39,18 +33,6 @@
       "launchUrl": "{Scheme}://{ServiceHost}:{ServicePort}/index.html",
       "publishAllPorts": true,
       "useSSL": true
-    },
-    "SelfHost": {
-      "commandName": "Project",
-      "launchBrowser": true,
-      "launchUrl": "index.html",
-      "applicationUrl": "http://localhost:5000/",
-      "environmentVariables": {
-        "ASPNETCORE_ENVIRONMENT": "Development",
-        "RUNTIME_ENVIRONMENT_NAME": "dev",
-        "HTTP1_PORT": "5000",
-        "HTTP2_PORT": "6000"
-      }
     }
   }
 }

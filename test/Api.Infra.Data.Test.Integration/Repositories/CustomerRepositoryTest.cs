@@ -1,12 +1,12 @@
 ﻿using NUnit.Framework;
 using POC.Grpc.Api.Domain.Customers.Interfaces.Repositories;
-using POC.Grpc.Test.Tools.Base;
+using POC.Grpc.Test.Tools.Base.Integration;
 using POC.Grpc.Test.Tools.Extensions;
 using System.Threading.Tasks;
 
 namespace POC.Grpc.Api.Infra.Data.Test.Integration.Repositories
 {
-    internal class CustomerRepositoryTest : IntegrationDatabaseTest
+    internal class CustomerRepositoryTest : IntegrationTest
     {
         private readonly ICustomerRepository _customerRepository;
 

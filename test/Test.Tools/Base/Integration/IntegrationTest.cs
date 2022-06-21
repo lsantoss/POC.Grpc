@@ -1,11 +1,12 @@
 ﻿using NUnit.Framework;
+using POC.Grpc.Test.Tools.Base.Common;
 
-namespace POC.Grpc.Test.Tools.Base
+namespace POC.Grpc.Test.Tools.Base.Integration
 {
     [TestFixture]
-    public class UnitTest : BaseTest
+    public class IntegrationTest : DatabaseTest
     {
-        public UnitTest() : base() { }
+        public IntegrationTest() : base() { }
 
         [OneTimeSetUp]
         protected override void OneTimeSetUp() => base.OneTimeSetUp();

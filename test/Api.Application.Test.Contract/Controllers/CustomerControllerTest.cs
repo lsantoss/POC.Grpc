@@ -1,7 +1,7 @@
 ﻿using Newtonsoft.Json;
 using NUnit.Framework;
 using POC.Grpc.App.Domain.Customers.Models;
-using POC.Grpc.Test.Tools.Base;
+using POC.Grpc.Test.Tools.Base.Contract;
 using POC.Grpc.Test.Tools.Extensions;
 using System;
 using System.Collections.Generic;

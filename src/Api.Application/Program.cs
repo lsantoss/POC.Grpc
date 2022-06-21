@@ -34,9 +34,8 @@ namespace POC.Grpc.Api.Application
 
                 var env = customEnvName switch
                 {
-                    "local" => "Development",
-                    "dev" => "Development",
-                    "qa" => "Staging",
+                    "development" => "Development",
+                    "staging" => "Staging",
                     _ => "Production"
                 };
 

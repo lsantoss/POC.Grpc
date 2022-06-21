@@ -2,14 +2,14 @@
 using NUnit.Framework;
 using POC.Grpc.Api.Application.Grpc;
 using POC.Grpc.Lib.Contract.Proto.Common.MessagesRequest;
-using POC.Grpc.Test.Tools.Base;
+using POC.Grpc.Test.Tools.Base.Integration;
 using POC.Grpc.Test.Tools.Constants;
 using POC.Grpc.Test.Tools.Extensions;
 using System.Threading.Tasks;
 
 namespace POC.Grpc.Api.Application.Test.Integration.Grpc
 {
-    internal class CustomerGrpcServiceTest : IntegrationDatabaseTest
+    internal class CustomerGrpcServiceTest : IntegrationTest
     {
         private const decimal NanoFactor = DecimalConstants.NanoFactor;
 

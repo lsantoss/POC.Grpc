@@ -1,11 +1,12 @@
 ﻿using NUnit.Framework;
+using POC.Grpc.Test.Tools.Base.Common;
 using System;
 using System.Net.Http;
 
-namespace POC.Grpc.Test.Tools.Base
+namespace POC.Grpc.Test.Tools.Base.Contract
 {
     [TestFixture]
-    public class ContractTest : BaseTest
+    public class ContractTest : DatabaseTest
     {
         protected readonly HttpClient _httpClient;
 

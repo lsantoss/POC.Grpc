@@ -1,7 +1,7 @@
 ﻿using Google.Protobuf.WellKnownTypes;
 using NUnit.Framework;
 using POC.Grpc.Lib.Contract.Proto.Common.MessagesRequest;
-using POC.Grpc.Test.Tools.Base;
+using POC.Grpc.Test.Tools.Base.Contract;
 using POC.Grpc.Test.Tools.Extensions;
 using System;
 using System.Threading.Tasks;
@@ -9,7 +9,7 @@ using static POC.Grpc.Lib.Contract.Proto.Customers.Services.CustomerService;
 
 namespace POC.Grpc.Api.Application.Test.Contract.Grpc
 {
-    internal class CustomerGrpcServiceTest : UnitTest
+    internal class CustomerGrpcServiceTest : ContractTest
     {
         private readonly CustomerServiceClient _customerServiceClient;
 

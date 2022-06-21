@@ -1,6 +1,6 @@
 ﻿using NUnit.Framework;
 using POC.Grpc.App.Domain.Customers.Interfaces.Services.Rest;
-using POC.Grpc.Test.Tools.Base;
+using POC.Grpc.Test.Tools.Base.Unit;
 using POC.Grpc.Test.Tools.Extensions;
 using System;
 using System.Threading.Tasks;

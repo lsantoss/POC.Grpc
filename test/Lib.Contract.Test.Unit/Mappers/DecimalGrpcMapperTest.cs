@@ -1,7 +1,7 @@
 ﻿using NUnit.Framework;
 using POC.Grpc.Lib.Contract.Mappers;
 using POC.Grpc.Lib.Contract.Proto.Common.CustomTypes;
-using POC.Grpc.Test.Tools.Base;
+using POC.Grpc.Test.Tools.Base.Unit;
 using POC.Grpc.Test.Tools.Constants;
 using System;
 

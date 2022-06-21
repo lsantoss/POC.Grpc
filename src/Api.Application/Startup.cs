@@ -42,6 +42,10 @@ namespace POC.Grpc.Api.Application
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
+            }
+
+            if (env.IsDevelopment() || env.IsStaging())
+            {
                 app.UseSwagger();
                 app.UseSwaggerUI(sw =>
                 {
