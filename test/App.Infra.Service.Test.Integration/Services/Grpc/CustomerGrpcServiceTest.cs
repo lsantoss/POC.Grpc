@@ -1,13 +1,13 @@
 ﻿using NUnit.Framework;
 using POC.Grpc.App.Domain.Customers.Interfaces.Services.Grpc;
-using POC.Grpc.Test.Tools.Base.Unit;
+using POC.Grpc.Test.Tools.Base.Integration;
 using POC.Grpc.Test.Tools.Extensions;
 using System;
 using System.Threading.Tasks;
 
-namespace POC.Grpc.App.Infra.Service.Test.Unit.Services.Grpc
+namespace POC.Grpc.App.Infra.Service.Test.Integration.Services.Grpc
 {
-    internal class CustomerGrpcServiceTest : UnitTest
+    internal class CustomerGrpcServiceTest : IntegrationTest
     {
         private readonly ICustomerGrpcService _customerGrpcService;
 

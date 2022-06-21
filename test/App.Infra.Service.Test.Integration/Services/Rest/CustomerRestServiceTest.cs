@@ -1,13 +1,13 @@
 ﻿using NUnit.Framework;
 using POC.Grpc.App.Domain.Customers.Interfaces.Services.Rest;
-using POC.Grpc.Test.Tools.Base.Unit;
+using POC.Grpc.Test.Tools.Base.Integration;
 using POC.Grpc.Test.Tools.Extensions;
 using System;
 using System.Threading.Tasks;
 
-namespace POC.Grpc.App.Infra.Service.Test.Unit.Services.Rest
+namespace POC.Grpc.App.Infra.Service.Test.Integration.Services.Rest
 {
-    internal class CustomerRestServiceTest : UnitTest
+    internal class CustomerRestServiceTest : IntegrationTest
     {
         private readonly ICustomerRestService _customerRestService;
 

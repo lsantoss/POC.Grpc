@@ -67,8 +67,6 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Api.Domain.Test.Unit", "tes
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "App.Domain.Test.Unit", "test\App.Domain.Test.Unit\App.Domain.Test.Unit.csproj", "{06ED945E-7AF0-4CF8-834E-D1DD1E78B55B}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "App.Infra.Service.Test.Unit", "test\App.Infra.Service.Test.Unit\App.Infra.Service.Test.Unit.csproj", "{98EA6FFC-9BD0-4962-9CEF-3F48E01AFFEC}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Api.Domain.Core", "src\Api.Domain.Core\Api.Domain.Core.csproj", "{2909067F-432D-4DD2-90DF-425CAD258979}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Api.Infra.Data.Test.Integration", "test\Api.Infra.Data.Test.Integration\Api.Infra.Data.Test.Integration.csproj", "{EC76A0EB-85A6-432B-A245-ED8140A0D9AB}"
@@ -76,6 +74,8 @@ EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Api.Application.Test.Contract", "test\Api.Application.Test.Contract\Api.Application.Test.Contract.csproj", "{64AC5F92-6FA4-450F-81A9-E74F5E1E5735}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Api.Application.Test.Integration", "test\Api.Application.Test.Integration\Api.Application.Test.Integration.csproj", "{4EDA0AD9-96E1-40E0-9A59-76D975F9E194}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "App.Infra.Service.Test.Integration", "test\App.Infra.Service.Test.Integration\App.Infra.Service.Test.Integration.csproj", "{86F4CF51-E04E-40D7-BBB0-03D1805B95F3}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -135,10 +135,6 @@ Global
 		{06ED945E-7AF0-4CF8-834E-D1DD1E78B55B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{06ED945E-7AF0-4CF8-834E-D1DD1E78B55B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{06ED945E-7AF0-4CF8-834E-D1DD1E78B55B}.Release|Any CPU.Build.0 = Release|Any CPU
-		{98EA6FFC-9BD0-4962-9CEF-3F48E01AFFEC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{98EA6FFC-9BD0-4962-9CEF-3F48E01AFFEC}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{98EA6FFC-9BD0-4962-9CEF-3F48E01AFFEC}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{98EA6FFC-9BD0-4962-9CEF-3F48E01AFFEC}.Release|Any CPU.Build.0 = Release|Any CPU
 		{2909067F-432D-4DD2-90DF-425CAD258979}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{2909067F-432D-4DD2-90DF-425CAD258979}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2909067F-432D-4DD2-90DF-425CAD258979}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -155,6 +151,10 @@ Global
 		{4EDA0AD9-96E1-40E0-9A59-76D975F9E194}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4EDA0AD9-96E1-40E0-9A59-76D975F9E194}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4EDA0AD9-96E1-40E0-9A59-76D975F9E194}.Release|Any CPU.Build.0 = Release|Any CPU
+		{86F4CF51-E04E-40D7-BBB0-03D1805B95F3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{86F4CF51-E04E-40D7-BBB0-03D1805B95F3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{86F4CF51-E04E-40D7-BBB0-03D1805B95F3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{86F4CF51-E04E-40D7-BBB0-03D1805B95F3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -188,11 +188,11 @@ Global
 		{D1CCC513-418B-4AC9-B5A5-855264BCABC1} = {C5547983-1A2F-4FE6-BFCB-1F184AFE51B5}
 		{DD4A9A39-A354-4132-B6BC-8482C932160B} = {3A253788-5FA9-44C1-B1F6-E6C45D756C8C}
 		{06ED945E-7AF0-4CF8-834E-D1DD1E78B55B} = {98074CE1-67B0-4533-BF92-40A585065BAB}
-		{98EA6FFC-9BD0-4962-9CEF-3F48E01AFFEC} = {865029F4-2D3E-457F-B403-0D381F2D5529}
 		{2909067F-432D-4DD2-90DF-425CAD258979} = {A0221B1A-074A-422E-870F-832B9143066C}
 		{EC76A0EB-85A6-432B-A245-ED8140A0D9AB} = {C5AB3A28-99B8-4CE2-9034-BD613636E36F}
 		{64AC5F92-6FA4-450F-81A9-E74F5E1E5735} = {FB6B71E3-129C-427E-BDE1-657D960CE833}
 		{4EDA0AD9-96E1-40E0-9A59-76D975F9E194} = {FB6B71E3-129C-427E-BDE1-657D960CE833}
+		{86F4CF51-E04E-40D7-BBB0-03D1805B95F3} = {865029F4-2D3E-457F-B403-0D381F2D5529}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {6C42A7F1-7375-405D-A24C-234CEA7BD670}
