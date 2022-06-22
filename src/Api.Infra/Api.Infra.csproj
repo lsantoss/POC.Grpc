@@ -1,9 +1,0 @@
-<Project Sdk="Microsoft.NET.Sdk">
-
-  <PropertyGroup>
-    <TargetFramework>net5.0</TargetFramework>
-    <AssemblyName>POC.Grpc.Api.Infra</AssemblyName>
-    <RootNamespace>POC.Grpc.Api.Infra</RootNamespace>
-  </PropertyGroup>
-
-</Project>
