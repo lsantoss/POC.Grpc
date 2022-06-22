@@ -1,4 +1,4 @@
-﻿namespace POC.Grpc.Api.Domain.Core.Settings
+﻿namespace POC.Grpc.Api.Infra.Settings
 {
     public class AppSettings
     {

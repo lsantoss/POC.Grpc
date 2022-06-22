@@ -1,4 +1,4 @@
-﻿using POC.Grpc.Api.Domain.Core.Settings;
+﻿using POC.Grpc.Api.Infra.Settings;
 using System;
 using System.Data;
 using System.Data.SqlClient;

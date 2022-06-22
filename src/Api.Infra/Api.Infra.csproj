@@ -2,8 +2,8 @@
 
   <PropertyGroup>
     <TargetFramework>net5.0</TargetFramework>
-    <AssemblyName>POC.Grpc.Api.Domain.Core</AssemblyName>
-    <RootNamespace>POC.Grpc.Api.Domain.Core</RootNamespace>
+    <AssemblyName>POC.Grpc.Api.Infra</AssemblyName>
+    <RootNamespace>POC.Grpc.Api.Infra</RootNamespace>
   </PropertyGroup>
 
 </Project>
