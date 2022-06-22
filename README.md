@@ -1,11 +1,11 @@
 # POC.Grpc
 
-## Aplicação:
-Essa aplicação contém um exemplo de uma api configurada para fornecer serviços grpc e rest.
+## Application:
+This application contains an example of an api configured to provide grpc and rest services.
 
-Também possuindo uma aplicação front-end que contém exemplos de consumo dos serviços grpc e rest.
+Also having a front-end application that contains examples of consumption of grpc and rest services.
 
-E por fim uma biblioteca de classes que centraliza os contratos para os serviços grpc.
+And finally, a class library that centralizes the contracts for the grpc services.
 
 ---
 
@@ -14,7 +14,7 @@ E por fim uma biblioteca de classes que centraliza os contratos para os serviço
 
 ---
 
-## Bibliotecas (principais):
+## Libraries (only most important):
 - coverlet.collector
 - Dapper
 - Google.Protobuf
