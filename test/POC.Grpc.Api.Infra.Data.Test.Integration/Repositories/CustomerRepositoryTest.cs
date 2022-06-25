@@ -19,7 +19,7 @@ namespace POC.Grpc.Api.Infra.Data.Test.Integration.Repositories
 
             var result = await _customerRepository.GetAsync(customer.Id);
 
-            TestContext.WriteLine(result.Format());
+            TestContext.WriteLine(result.ToJson());
 
             Assert.Multiple(() =>
             {
@@ -38,7 +38,7 @@ namespace POC.Grpc.Api.Infra.Data.Test.Integration.Repositories
         {
             var result = await _customerRepository.GetAsync(0);
 
-            TestContext.WriteLine(result.Format());
+            TestContext.WriteLine(result.ToJson());
 
             Assert.That(result, Is.Null);
         }
@@ -50,7 +50,7 @@ namespace POC.Grpc.Api.Infra.Data.Test.Integration.Repositories
 
             var result = await _customerRepository.ListAsync();
 
-            TestContext.WriteLine(result.Format());
+            TestContext.WriteLine(result.ToJson());
 
             Assert.Multiple(() =>
             {

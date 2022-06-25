@@ -4,13 +4,13 @@ namespace POC.Grpc.Test.Tools.Extensions
 {
     public static class JsonFormatter
     {
-        public static string Format(this string json)
+        public static string ToJson(this string json)
         {
             var obj = JsonConvert.DeserializeObject(json);
             return JsonConvert.SerializeObject(obj, Formatting.Indented);
         }
 
-        public static string Format(this object obj)
+        public static string ToJson(this object obj)
         {
             return JsonConvert.SerializeObject(obj, Formatting.Indented);
         }

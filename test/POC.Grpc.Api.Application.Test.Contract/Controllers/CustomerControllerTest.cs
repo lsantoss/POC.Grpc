@@ -3,8 +3,8 @@ using NUnit.Framework;
 using POC.Grpc.App.Domain.Customers.Models;
 using POC.Grpc.Test.Tools.Base.Contract;
 using POC.Grpc.Test.Tools.Extensions;
-using System;
 using System.Collections.Generic;
+using System.Net.Http;
 using System.Threading.Tasks;
 
 namespace POC.Grpc.Api.Application.Test.Contract.Controllers
@@ -21,7 +21,7 @@ namespace POC.Grpc.Api.Application.Test.Contract.Controllers
                 var responseString = await _httpClient.GetStringAsync($"v1/customers/{customer.Id}");
                 var response = JsonConvert.DeserializeObject<CustomerViewModel>(responseString);
 
-                TestContext.WriteLine(response.Format());
+                TestContext.WriteLine(response.ToJson());
 
                 Assert.Multiple(() =>
                 {
@@ -34,7 +34,7 @@ namespace POC.Grpc.Api.Application.Test.Contract.Controllers
                     Assert.That(response.CashBalanceDecimal, Is.EqualTo(customer.CashBalanceDecimal));
                 });
             }
-            catch (Exception e)
+            catch (HttpRequestException e)
             {
                 Assert.Inconclusive(e.Message);
             }
@@ -48,11 +48,11 @@ namespace POC.Grpc.Api.Application.Test.Contract.Controllers
                 var responseString = await _httpClient.GetStringAsync($"v1/customers/0");
                 var response = JsonConvert.DeserializeObject<CustomerViewModel>(responseString);
 
-                TestContext.WriteLine(response.Format());
+                TestContext.WriteLine(response.ToJson());
 
                 Assert.That(response, Is.Null);
             }
-            catch (Exception e)
+            catch (HttpRequestException e)
             {
                 Assert.Inconclusive(e.Message);
             }
@@ -68,7 +68,7 @@ namespace POC.Grpc.Api.Application.Test.Contract.Controllers
                 var responseString = await _httpClient.GetStringAsync($"v1/customers");
                 var response = JsonConvert.DeserializeObject<List<CustomerViewModel>>(responseString);
 
-                TestContext.WriteLine(response.Format());
+                TestContext.WriteLine(response.ToJson());
 
                 Assert.Multiple(() =>
                 {
@@ -97,7 +97,7 @@ namespace POC.Grpc.Api.Application.Test.Contract.Controllers
                     Assert.That(response[2].CashBalanceDecimal, Is.EqualTo(customers[2].CashBalanceDecimal));
                 });
             }
-            catch (Exception e)
+            catch (HttpRequestException e)
             {
                 Assert.Inconclusive(e.Message);
             }

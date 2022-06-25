@@ -18,7 +18,7 @@ namespace POC.Grpc.App.Domain.Test.Unit.Customers.Mappers
         {
             var result = CustomerGrpcMapper.MapToCustomerViewModel(null);
 
-            TestContext.WriteLine(result.Format());
+            TestContext.WriteLine(result.ToJson());
 
             Assert.That(result, Is.Null);
         }
@@ -28,7 +28,7 @@ namespace POC.Grpc.App.Domain.Test.Unit.Customers.Mappers
         {
             var result = CustomerGrpcMapper.MapToCustomerViewModel(new CustomerResponse());
 
-            TestContext.WriteLine(result.Format());
+            TestContext.WriteLine(result.ToJson());
 
             Assert.That(result, Is.Null);
         }
@@ -40,7 +40,7 @@ namespace POC.Grpc.App.Domain.Test.Unit.Customers.Mappers
 
             var result = CustomerGrpcMapper.MapToCustomerViewModel(customer);
 
-            TestContext.WriteLine(result.Format());
+            TestContext.WriteLine(result.ToJson());
 
             Assert.Multiple(() =>
             {
@@ -62,7 +62,7 @@ namespace POC.Grpc.App.Domain.Test.Unit.Customers.Mappers
         {
             var result = CustomerGrpcMapper.MapToListOfCustomerViewModel(null);
 
-            TestContext.WriteLine(result.Format());
+            TestContext.WriteLine(result.ToJson());
 
             Assert.Multiple(() =>
             {
@@ -76,7 +76,7 @@ namespace POC.Grpc.App.Domain.Test.Unit.Customers.Mappers
         {
             var result = CustomerGrpcMapper.MapToListOfCustomerViewModel(new CustomerListResponse());
 
-            TestContext.WriteLine(result.Format());
+            TestContext.WriteLine(result.ToJson());
 
             Assert.Multiple(() =>
             {
@@ -92,7 +92,7 @@ namespace POC.Grpc.App.Domain.Test.Unit.Customers.Mappers
 
             var result = CustomerGrpcMapper.MapToListOfCustomerViewModel(customerList);
 
-            TestContext.WriteLine(result.Format());
+            TestContext.WriteLine(result.ToJson());
                         
             Assert.Multiple(() =>
             {

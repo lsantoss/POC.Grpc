@@ -1,8 +1,8 @@
-﻿using NUnit.Framework;
+﻿using Grpc.Core;
+using NUnit.Framework;
 using POC.Grpc.App.Domain.Customers.Interfaces.Services.Grpc;
 using POC.Grpc.Test.Tools.Base.Integration;
 using POC.Grpc.Test.Tools.Extensions;
-using System;
 using System.Threading.Tasks;
 
 namespace POC.Grpc.App.Infra.Service.Test.Integration.Services.Grpc
@@ -22,7 +22,7 @@ namespace POC.Grpc.App.Infra.Service.Test.Integration.Services.Grpc
 
                 var result = await _customerGrpcService.GetAsync(customer.Id);
 
-                TestContext.WriteLine(result.Format());
+                TestContext.WriteLine(result.ToJson());
 
                 Assert.Multiple(() =>
                 {
@@ -35,7 +35,7 @@ namespace POC.Grpc.App.Infra.Service.Test.Integration.Services.Grpc
                     Assert.That(result.CashBalanceDecimal, Is.EqualTo(customer.CashBalanceDecimal));
                 });
             }
-            catch (Exception e)
+            catch (RpcException e)
             {
                 Assert.Inconclusive(e.Message);
             }
@@ -48,11 +48,11 @@ namespace POC.Grpc.App.Infra.Service.Test.Integration.Services.Grpc
             {
                 var result = await _customerGrpcService.GetAsync(0);
 
-                TestContext.WriteLine(result.Format());
+                TestContext.WriteLine(result.ToJson());
 
                 Assert.That(result, Is.Null);
             }
-            catch (Exception e)
+            catch (RpcException e)
             {
                 Assert.Inconclusive(e.Message);
             }
@@ -67,7 +67,7 @@ namespace POC.Grpc.App.Infra.Service.Test.Integration.Services.Grpc
 
                 var result = await _customerGrpcService.ListAsync();
 
-                TestContext.WriteLine(result.Format());
+                TestContext.WriteLine(result.ToJson());
 
                 Assert.Multiple(() =>
                 {
@@ -96,7 +96,7 @@ namespace POC.Grpc.App.Infra.Service.Test.Integration.Services.Grpc
                     Assert.That(result[2].CashBalanceDecimal, Is.EqualTo(customers[2].CashBalanceDecimal));
                 });
             }
-            catch (Exception e)
+            catch (RpcException e)
             {
                 Assert.Inconclusive(e.Message);
             }

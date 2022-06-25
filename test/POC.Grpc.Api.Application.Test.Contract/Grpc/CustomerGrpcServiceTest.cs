@@ -1,9 +1,9 @@
 ﻿using Google.Protobuf.WellKnownTypes;
+using Grpc.Core;
 using NUnit.Framework;
 using POC.Grpc.Lib.Contract.Proto.Common.MessagesRequest;
 using POC.Grpc.Test.Tools.Base.Contract;
 using POC.Grpc.Test.Tools.Extensions;
-using System;
 using System.Threading.Tasks;
 using static POC.Grpc.Lib.Contract.Proto.Customers.Services.CustomerService;
 
@@ -25,7 +25,7 @@ namespace POC.Grpc.Api.Application.Test.Contract.Grpc
                 var request = new GetByInt64IdRequest() { Id = customer.Id };
                 var response = await _customerServiceClient.GetAsync(request);
 
-                TestContext.WriteLine(response.Format());
+                TestContext.WriteLine(response.ToJson());
 
                 Assert.Multiple(() =>
                 {
@@ -38,7 +38,7 @@ namespace POC.Grpc.Api.Application.Test.Contract.Grpc
                     Assert.That(response.CashBalanceDecimal, Is.EqualTo(customer.CashBalanceDecimal));
                 });
             }
-            catch (Exception e)
+            catch (RpcException e)
             {
                 Assert.Inconclusive(e.Message);
             }
@@ -52,7 +52,7 @@ namespace POC.Grpc.Api.Application.Test.Contract.Grpc
                 var request = new GetByInt64IdRequest() { Id = 0 };
                 var response = await _customerServiceClient.GetAsync(request);
 
-                TestContext.WriteLine(response.Format());
+                TestContext.WriteLine(response.ToJson());
 
                 Assert.Multiple(() =>
                 {
@@ -65,7 +65,7 @@ namespace POC.Grpc.Api.Application.Test.Contract.Grpc
                     Assert.That(response.CashBalanceDecimal, Is.Null);
                 });
             }
-            catch (Exception e)
+            catch (RpcException e)
             {
                 Assert.Inconclusive(e.Message);
             }
@@ -80,7 +80,7 @@ namespace POC.Grpc.Api.Application.Test.Contract.Grpc
 
                 var response = await _customerServiceClient.ListAsync(new Empty());
 
-                TestContext.WriteLine(response.Format());
+                TestContext.WriteLine(response.ToJson());
 
                 Assert.Multiple(() =>
                 {
@@ -109,7 +109,7 @@ namespace POC.Grpc.Api.Application.Test.Contract.Grpc
                     Assert.That(response.Customers[2].CashBalanceDecimal, Is.EqualTo(customerList.Customers[2].CashBalanceDecimal));
                 });
             }
-            catch (Exception e)
+            catch (RpcException e)
             {
                 Assert.Inconclusive(e.Message);
             }

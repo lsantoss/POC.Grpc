@@ -25,7 +25,7 @@ namespace POC.Grpc.Api.Application.Test.Integration.Controllers
             var actionResultJson = JsonConvert.SerializeObject(actionResult);
             var response = JsonConvert.DeserializeObject<ControllerResponse<CustomerQueryResult>>(actionResultJson);
 
-            TestContext.WriteLine(response.Format());
+            TestContext.WriteLine(response.ToJson());
 
             Assert.Multiple(() =>
             {
@@ -47,7 +47,7 @@ namespace POC.Grpc.Api.Application.Test.Integration.Controllers
             var actionResultJson = JsonConvert.SerializeObject(actionResult);
             var response = JsonConvert.DeserializeObject<ControllerResponse<CustomerQueryResult>>(actionResultJson);
 
-            TestContext.WriteLine(response.Format());
+            TestContext.WriteLine(response.ToJson());
 
             Assert.Multiple(() =>
             {
@@ -65,7 +65,7 @@ namespace POC.Grpc.Api.Application.Test.Integration.Controllers
             var actionResultJson = JsonConvert.SerializeObject(actionResult);
             var response = JsonConvert.DeserializeObject<ControllerResponse<List<CustomerQueryResult>>>(actionResultJson);
 
-            TestContext.WriteLine(response.Format());
+            TestContext.WriteLine(response.ToJson());
 
             Assert.Multiple(() =>
             {

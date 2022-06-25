@@ -25,7 +25,7 @@ namespace POC.Grpc.Api.Application.Test.Integration.Grpc
             var request = new GetByInt64IdRequest() { Id = customer.Id };
             var response = await customerGrpcService.Get(request, null);
 
-            TestContext.WriteLine(response.Format());
+            TestContext.WriteLine(response.ToJson());
 
             Assert.Multiple(() =>
             {
@@ -49,7 +49,7 @@ namespace POC.Grpc.Api.Application.Test.Integration.Grpc
             var request = new GetByInt64IdRequest() { Id = 0 };
             var response = await customerGrpcService.Get(request, null);
 
-            TestContext.WriteLine(response.Format());
+            TestContext.WriteLine(response.ToJson());
 
             Assert.Multiple(() =>
             {
@@ -70,7 +70,7 @@ namespace POC.Grpc.Api.Application.Test.Integration.Grpc
 
             var response = await customerGrpcService.List(new Empty(), null);
 
-            TestContext.WriteLine(response.Format());
+            TestContext.WriteLine(response.ToJson());
 
             Assert.Multiple(() =>
             {

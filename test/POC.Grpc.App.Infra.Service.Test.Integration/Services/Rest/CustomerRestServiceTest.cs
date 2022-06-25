@@ -2,7 +2,7 @@
 using POC.Grpc.App.Domain.Customers.Interfaces.Services.Rest;
 using POC.Grpc.Test.Tools.Base.Integration;
 using POC.Grpc.Test.Tools.Extensions;
-using System;
+using System.Net.Http;
 using System.Threading.Tasks;
 
 namespace POC.Grpc.App.Infra.Service.Test.Integration.Services.Rest
@@ -22,7 +22,7 @@ namespace POC.Grpc.App.Infra.Service.Test.Integration.Services.Rest
 
                 var result = await _customerRestService.GetAsync(customer.Id);
 
-                TestContext.WriteLine(result.Format());
+                TestContext.WriteLine(result.ToJson());
 
                 Assert.Multiple(() =>
                 {
@@ -35,7 +35,7 @@ namespace POC.Grpc.App.Infra.Service.Test.Integration.Services.Rest
                     Assert.That(result.CashBalanceDecimal, Is.EqualTo(customer.CashBalanceDecimal));
                 });
             }
-            catch (Exception e)
+            catch (HttpRequestException e)
             {
                 Assert.Inconclusive(e.Message);
             }
@@ -50,7 +50,7 @@ namespace POC.Grpc.App.Infra.Service.Test.Integration.Services.Rest
 
                 var result = await _customerRestService.ListAsync();
 
-                TestContext.WriteLine(result.Format());
+                TestContext.WriteLine(result.ToJson());
 
                 Assert.Multiple(() =>
                 {
@@ -79,7 +79,7 @@ namespace POC.Grpc.App.Infra.Service.Test.Integration.Services.Rest
                     Assert.That(result[2].CashBalanceDecimal, Is.EqualTo(customers[2].CashBalanceDecimal));
                 });
             }
-            catch (Exception e)
+            catch (HttpRequestException e)
             {
                 Assert.Inconclusive(e.Message);
             }
