@@ -46,4 +46,8 @@
     <ProjectReference Include="..\..\src\POC.Grpc.App.Application\POC.Grpc.App.Application.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Mocks\Customers\Queries\Result\" />
+  </ItemGroup>
+
 </Project>
