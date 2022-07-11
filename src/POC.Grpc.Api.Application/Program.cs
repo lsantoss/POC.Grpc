@@ -30,16 +30,6 @@ namespace POC.Grpc.Api.Application
                     });
                 });
 
-                var customEnvName = Environment.GetEnvironmentVariable("RUNTIME_ENVIRONMENT_NAME");
-
-                var env = customEnvName switch
-                {
-                    "development" => "Development",
-                    "staging" => "Staging",
-                    _ => "Production"
-                };
-
-                webBuilder.UseEnvironment(env);
                 webBuilder.UseStartup<Startup>();
             });
         }

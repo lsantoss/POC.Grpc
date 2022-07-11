@@ -13,7 +13,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\POC.Grpc.Api.Infra.Crosscuting\POC.Grpc.Api.Infra.Crosscuting.csproj" />
+    <ProjectReference Include="..\POC.Grpc.Api.Infra.Crosscutting\POC.Grpc.Api.Infra.Crosscutting.csproj" />
   </ItemGroup>
 
 </Project>

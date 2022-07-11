@@ -1,6 +1,6 @@
 {
   "profiles": {
-    "POC.Grpc.App": {
+    "POC.Grpc.App - Development": {
       "commandName": "Project",
       "launchBrowser": true,
       "environmentVariables": {

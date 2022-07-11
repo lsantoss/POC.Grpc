@@ -5,7 +5,7 @@ using POC.Grpc.Api.Domain.Customers.Interfaces.Repositories;
 using POC.Grpc.Api.Infra.Data.DataContexts;
 using POC.Grpc.Api.Infra.Data.Repositories;
 
-namespace POC.Grpc.Api.Infra.Crosscuting
+namespace POC.Grpc.Api.Infra.Crosscutting
 {
     public static class DependencyInjectionExtension
     {

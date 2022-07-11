@@ -1,4 +1,4 @@
-﻿namespace App.Infra.Settings
+﻿namespace POC.Grpc.App.Infra.Settings
 {
     public class AppSettings
     {

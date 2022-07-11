@@ -1,14 +1,14 @@
-﻿using App.Infra.Settings;
-using Microsoft.Extensions.Configuration;
+﻿using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using POC.Grpc.App.Domain.Customers.Interfaces.Services.Grpc;
 using POC.Grpc.App.Domain.Customers.Interfaces.Services.Rest;
 using POC.Grpc.App.Infra.Service.Services.Grpc;
 using POC.Grpc.App.Infra.Service.Services.Rest;
+using POC.Grpc.App.Infra.Settings;
 using System;
 using static POC.Grpc.Lib.Contract.Proto.Customers.Services.CustomerService;
 
-namespace POC.Grpc.App.Infra.Crosscuting
+namespace POC.Grpc.App.Infra.Crosscutting
 {
     public static class DependencyInjectionExtension
     {

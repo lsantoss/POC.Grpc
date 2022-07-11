@@ -1,8 +1,8 @@
 ﻿using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using NUnit.Framework;
-using DependencyInjectionExtensionApi = POC.Grpc.Api.Infra.Crosscuting.DependencyInjectionExtension;
-using DependencyInjectionExtensionApp = POC.Grpc.App.Infra.Crosscuting.DependencyInjectionExtension;
+using DependencyInjectionExtensionApi = POC.Grpc.Api.Infra.Crosscutting.DependencyInjectionExtension;
+using DependencyInjectionExtensionApp = POC.Grpc.App.Infra.Crosscutting.DependencyInjectionExtension;
 using DependencyInjectionExtensionTest = POC.Grpc.Test.Tools.Extensions.DependencyInjectionExtension;
 
 namespace POC.Grpc.Test.Tools
