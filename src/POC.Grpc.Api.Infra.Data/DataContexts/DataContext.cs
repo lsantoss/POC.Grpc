@@ -1,11 +1,11 @@
-﻿using POC.Grpc.Api.Infra.Settings;
-using System;
+﻿using POC.Grpc.Api.Infra.Data.Interfaces.DataContexts;
+using POC.Grpc.Api.Infra.Settings;
 using System.Data;
 using System.Data.SqlClient;
 
 namespace POC.Grpc.Api.Infra.Data.DataContexts
 {
-    public class DataContext : IDisposable
+    public class DataContext : IDataContext
     {
         public SqlConnection Connection { get; }
 
