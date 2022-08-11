@@ -1,4 +1,4 @@
-﻿using POC.Grpc.Api.Infra.Data.Interfaces.DataContexts;
+﻿using POC.Grpc.Api.Infra.Data.DataContexts.Interfaces;
 using POC.Grpc.Api.Infra.Settings;
 using System.Data;
 using System.Data.SqlClient;

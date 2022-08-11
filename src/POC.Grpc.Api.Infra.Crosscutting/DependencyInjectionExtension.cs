@@ -4,7 +4,7 @@ using POC.Grpc.Api.Infra.Settings;
 using POC.Grpc.Api.Domain.Customers.Interfaces.Repositories;
 using POC.Grpc.Api.Infra.Data.DataContexts;
 using POC.Grpc.Api.Infra.Data.Repositories;
-using POC.Grpc.Api.Infra.Data.Interfaces.DataContexts;
+using POC.Grpc.Api.Infra.Data.DataContexts.Interfaces;
 
 namespace POC.Grpc.Api.Infra.Crosscutting
 {
