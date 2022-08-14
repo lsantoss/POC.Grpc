@@ -4,7 +4,7 @@ using POC.Grpc.Test.Tools.Base.Integration;
 using POC.Grpc.Test.Tools.Extensions;
 using System.Threading.Tasks;
 
-namespace POC.Grpc.Api.Infra.Data.Test.Integration.Repositories
+namespace POC.Grpc.Api.Infra.Data.Test.Integration.Customers.Repositories
 {
     internal class CustomerRepositoryTest : IntegrationTest
     {

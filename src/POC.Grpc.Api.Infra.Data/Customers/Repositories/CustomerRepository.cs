@@ -1,14 +1,14 @@
 ﻿using Dapper;
 using POC.Grpc.Api.Domain.Customers.Interfaces.Repositories;
 using POC.Grpc.Api.Domain.Customers.Queries.Result;
+using POC.Grpc.Api.Infra.Data.Customers.Queries;
 using POC.Grpc.Api.Infra.Data.DataContexts.Interfaces;
-using POC.Grpc.Api.Infra.Data.Repositories.Queries;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace POC.Grpc.Api.Infra.Data.Repositories
+namespace POC.Grpc.Api.Infra.Data.Customers.Repositories
 {
     public class CustomerRepository : ICustomerRepository
     {

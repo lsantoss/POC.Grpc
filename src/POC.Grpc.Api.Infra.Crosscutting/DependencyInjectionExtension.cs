@@ -3,8 +3,8 @@ using Microsoft.Extensions.DependencyInjection;
 using POC.Grpc.Api.Infra.Settings;
 using POC.Grpc.Api.Domain.Customers.Interfaces.Repositories;
 using POC.Grpc.Api.Infra.Data.DataContexts;
-using POC.Grpc.Api.Infra.Data.Repositories;
 using POC.Grpc.Api.Infra.Data.DataContexts.Interfaces;
+using POC.Grpc.Api.Infra.Data.Customers.Repositories;
 
 namespace POC.Grpc.Api.Infra.Crosscutting
 {

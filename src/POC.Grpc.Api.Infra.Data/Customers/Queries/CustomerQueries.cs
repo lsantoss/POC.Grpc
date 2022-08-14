@@ -1,4 +1,4 @@
-﻿namespace POC.Grpc.Api.Infra.Data.Repositories.Queries
+﻿namespace POC.Grpc.Api.Infra.Data.Customers.Queries
 {
     public static class CustomerQueries
     {
