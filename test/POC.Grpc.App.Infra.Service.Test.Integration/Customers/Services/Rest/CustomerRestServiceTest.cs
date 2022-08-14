@@ -5,7 +5,7 @@ using POC.Grpc.Test.Tools.Extensions;
 using System.Net.Http;
 using System.Threading.Tasks;
 
-namespace POC.Grpc.App.Infra.Service.Test.Integration.Services.Rest
+namespace POC.Grpc.App.Infra.Service.Test.Integration.Customers.Services.Rest
 {
     internal class CustomerRestServiceTest : IntegrationTest
     {

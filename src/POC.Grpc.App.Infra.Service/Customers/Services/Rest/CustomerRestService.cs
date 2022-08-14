@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using System.Net.Http;
 using System.Threading.Tasks;
 
-namespace POC.Grpc.App.Infra.Service.Services.Rest
+namespace POC.Grpc.App.Infra.Service.Customers.Services.Rest
 {
     public class CustomerRestService : ICustomerRestService
     {

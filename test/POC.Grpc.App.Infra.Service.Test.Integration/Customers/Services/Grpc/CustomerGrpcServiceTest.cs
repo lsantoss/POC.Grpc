@@ -5,7 +5,7 @@ using POC.Grpc.Test.Tools.Base.Integration;
 using POC.Grpc.Test.Tools.Extensions;
 using System.Threading.Tasks;
 
-namespace POC.Grpc.App.Infra.Service.Test.Integration.Services.Grpc
+namespace POC.Grpc.App.Infra.Service.Test.Integration.Customers.Services.Grpc
 {
     internal class CustomerGrpcServiceTest : IntegrationTest
     {

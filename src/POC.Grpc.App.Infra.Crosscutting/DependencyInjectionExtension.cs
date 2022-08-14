@@ -2,8 +2,8 @@
 using Microsoft.Extensions.DependencyInjection;
 using POC.Grpc.App.Domain.Customers.Interfaces.Services.Grpc;
 using POC.Grpc.App.Domain.Customers.Interfaces.Services.Rest;
-using POC.Grpc.App.Infra.Service.Services.Grpc;
-using POC.Grpc.App.Infra.Service.Services.Rest;
+using POC.Grpc.App.Infra.Service.Customers.Services.Grpc;
+using POC.Grpc.App.Infra.Service.Customers.Services.Rest;
 using POC.Grpc.App.Infra.Settings;
 using System;
 using static POC.Grpc.Lib.Contract.Proto.Customers.Services.CustomerService;

@@ -7,7 +7,7 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using static POC.Grpc.Lib.Contract.Proto.Customers.Services.CustomerService;
 
-namespace POC.Grpc.App.Infra.Service.Services.Grpc
+namespace POC.Grpc.App.Infra.Service.Customers.Services.Grpc
 {
     public class CustomerGrpcService : ICustomerGrpcService
     {
