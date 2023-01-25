@@ -18,12 +18,15 @@ namespace POC.Grpc.App.Infra.Service.Test.Integration.Customers.Services.Grpc
         {
             try
             {
+                //Arrange
                 var customer = MockData.CustomerViewModel;
 
+                //Act
                 var result = await _customerGrpcService.GetAsync(customer.Id);
 
                 TestContext.WriteLine(result.ToJson());
 
+                //Assert
                 Assert.Multiple(() =>
                 {
                     Assert.That(result.Id, Is.EqualTo(customer.Id));
@@ -37,6 +40,7 @@ namespace POC.Grpc.App.Infra.Service.Test.Integration.Customers.Services.Grpc
             }
             catch (RpcException e)
             {
+                //Assert
                 Assert.Inconclusive(e.Message);
             }
         }
@@ -46,14 +50,17 @@ namespace POC.Grpc.App.Infra.Service.Test.Integration.Customers.Services.Grpc
         {
             try
             {
+                //Act
                 var result = await _customerGrpcService.GetAsync(0);
 
                 TestContext.WriteLine(result.ToJson());
 
+                //Assert
                 Assert.That(result, Is.Null);
             }
             catch (RpcException e)
             {
+                //Assert
                 Assert.Inconclusive(e.Message);
             }
         }
@@ -63,12 +70,15 @@ namespace POC.Grpc.App.Infra.Service.Test.Integration.Customers.Services.Grpc
         {
             try
             {
+                //Arrange
                 var customers = MockData.ListCustomerViewModel;
 
+                //Act
                 var result = await _customerGrpcService.ListAsync();
 
                 TestContext.WriteLine(result.ToJson());
 
+                //Assert
                 Assert.Multiple(() =>
                 {
                     Assert.That(result[0].Id, Is.EqualTo(customers[0].Id));
@@ -98,6 +108,7 @@ namespace POC.Grpc.App.Infra.Service.Test.Integration.Customers.Services.Grpc
             }
             catch (RpcException e)
             {
+                //Assert
                 Assert.Inconclusive(e.Message);
             }
         }

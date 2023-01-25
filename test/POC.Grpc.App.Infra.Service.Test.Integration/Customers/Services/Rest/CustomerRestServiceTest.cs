@@ -1,4 +1,5 @@
-﻿using NUnit.Framework;
+﻿using Grpc.Core;
+using NUnit.Framework;
 using POC.Grpc.App.Domain.Customers.Interfaces.Services.Rest;
 using POC.Grpc.Test.Tools.Base.Integration;
 using POC.Grpc.Test.Tools.Extensions;
@@ -18,12 +19,15 @@ namespace POC.Grpc.App.Infra.Service.Test.Integration.Customers.Services.Rest
         {
             try
             {
+                //Arrange
                 var customer = MockData.CustomerViewModel;
 
+                //Act
                 var result = await _customerRestService.GetAsync(customer.Id);
 
                 TestContext.WriteLine(result.ToJson());
 
+                //Assert
                 Assert.Multiple(() =>
                 {
                     Assert.That(result.Id, Is.EqualTo(customer.Id));
@@ -37,6 +41,27 @@ namespace POC.Grpc.App.Infra.Service.Test.Integration.Customers.Services.Rest
             }
             catch (HttpRequestException e)
             {
+                //Assert
+                Assert.Inconclusive(e.Message);
+            }
+        }
+
+        [Test]
+        public async Task GetAsync_Non_Registred_Customer_Success()
+        {
+            try
+            {
+                //Act
+                var result = await _customerRestService.GetAsync(0);
+
+                TestContext.WriteLine(result.ToJson());
+
+                //Assert
+                Assert.That(result, Is.Null);
+            }
+            catch (HttpRequestException e)
+            {
+                //Assert
                 Assert.Inconclusive(e.Message);
             }
         }
@@ -46,12 +71,15 @@ namespace POC.Grpc.App.Infra.Service.Test.Integration.Customers.Services.Rest
         {
             try
             {
+                //Arrange
                 var customers = MockData.ListCustomerViewModel;
 
+                //Act
                 var result = await _customerRestService.ListAsync();
 
                 TestContext.WriteLine(result.ToJson());
 
+                //Assert
                 Assert.Multiple(() =>
                 {
                     Assert.That(result[0].Id, Is.EqualTo(customers[0].Id));
@@ -81,6 +109,7 @@ namespace POC.Grpc.App.Infra.Service.Test.Integration.Customers.Services.Rest
             }
             catch (HttpRequestException e)
             {
+                //Assert
                 Assert.Inconclusive(e.Message);
             }
         }

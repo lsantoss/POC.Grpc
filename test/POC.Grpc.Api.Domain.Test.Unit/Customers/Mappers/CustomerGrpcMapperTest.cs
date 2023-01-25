@@ -16,10 +16,12 @@ namespace POC.Grpc.Api.Domain.Test.Unit.Customers.Mappers
         [Test]
         public void MapToCustomerResponse_Null_Parameter_Success()
         {
+            //Act
             var result = CustomerGrpcMapper.MapToCustomerResponse(null);
 
             TestContext.WriteLine(result.ToJson());
 
+            //Assert
             Assert.Multiple(() =>
             {
                 Assert.That(result.Id, Is.Zero);
@@ -36,10 +38,12 @@ namespace POC.Grpc.Api.Domain.Test.Unit.Customers.Mappers
         [Test]
         public void MapToCustomerResponse_New_Object_Parameter_Success()
         {
+            //Act
             var result = CustomerGrpcMapper.MapToCustomerResponse(new CustomerQueryResult());
 
             TestContext.WriteLine(result.ToJson());
 
+            //Assert
             Assert.Multiple(() =>
             {
                 Assert.That(result.Id, Is.Zero);
@@ -57,12 +61,15 @@ namespace POC.Grpc.Api.Domain.Test.Unit.Customers.Mappers
         [Test]
         public void MapToCustomerResponse_Valid_Customer_Parameter_Success()
         {
+            //Arrange
             var customer = MockData.CustomerQueryResult;
 
+            //Act
             var result = CustomerGrpcMapper.MapToCustomerResponse(customer);
 
             TestContext.WriteLine(result.ToJson());
 
+            //Assert
             Assert.Multiple(() =>
             {
                 var units = decimal.ToInt64(customer.CashBalanceDecimal);
@@ -83,10 +90,12 @@ namespace POC.Grpc.Api.Domain.Test.Unit.Customers.Mappers
         [Test]
         public void MapToCustomerListResponse_Null_Parameter_Success()
         {
+            //Act
             var result = CustomerGrpcMapper.MapToCustomerListResponse(null);
 
             TestContext.WriteLine(result.ToJson());
 
+            //Assert
             Assert.Multiple(() =>
             {
                 Assert.That(result.Customers, Is.Empty);
@@ -97,10 +106,12 @@ namespace POC.Grpc.Api.Domain.Test.Unit.Customers.Mappers
         [Test]
         public void MapToCustomerListResponse_Empty_List_Parameter_Success()
         {
+            //Act
             var result = CustomerGrpcMapper.MapToCustomerListResponse(new List<CustomerQueryResult>());
 
             TestContext.WriteLine(result.ToJson());
 
+            //Assert
             Assert.Multiple(() =>
             {
                 Assert.That(result.Customers, Is.Empty);
@@ -111,12 +122,15 @@ namespace POC.Grpc.Api.Domain.Test.Unit.Customers.Mappers
         [Test]
         public void MapToCustomerListResponse_Valid_List_Parameter_Success()
         {
+            //Arrange
             var customers = MockData.ListCustomerQueryResult;
 
+            //Act
             var result = CustomerGrpcMapper.MapToCustomerListResponse(customers);
 
             TestContext.WriteLine(result.ToJson());
 
+            //Assert
             Assert.Multiple(() =>
             {
                 var units = decimal.ToInt64(customers[0].CashBalanceDecimal);

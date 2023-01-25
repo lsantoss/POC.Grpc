@@ -15,12 +15,15 @@ namespace POC.Grpc.Api.Infra.Data.Test.Integration.Customers.Repositories
         [Test]
         public async Task GetAsync_SuccessAsync()
         {
+            //Arrange
             var customer = MockData.CustomerQueryResult;
 
+            //Act
             var result = await _customerRepository.GetAsync(customer.Id);
 
             TestContext.WriteLine(result.ToJson());
 
+            //Assert
             Assert.Multiple(() =>
             {
                 Assert.That(result.Id, Is.EqualTo(customer.Id));
@@ -36,22 +39,27 @@ namespace POC.Grpc.Api.Infra.Data.Test.Integration.Customers.Repositories
         [Test]
         public async Task GetAsync_Non_Registred_Customer_Success()
         {
+            //Act
             var result = await _customerRepository.GetAsync(0);
 
             TestContext.WriteLine(result.ToJson());
 
+            //Assert
             Assert.That(result, Is.Null);
         }
 
         [Test]
         public async Task ListAsync_SuccessAsync()
         {
+            //Arrange
             var customers = MockData.ListCustomerQueryResult;
 
+            //Act
             var result = await _customerRepository.ListAsync();
 
             TestContext.WriteLine(result.ToJson());
 
+            //Assert
             Assert.Multiple(() =>
             {
                 Assert.That(result[0].Id, Is.EqualTo(customers[0].Id));

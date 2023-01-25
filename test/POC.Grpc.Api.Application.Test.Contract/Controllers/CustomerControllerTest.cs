@@ -16,13 +16,16 @@ namespace POC.Grpc.Api.Application.Test.Contract.Controllers
         {
             try
             {
+                //Arrange
                 var customer = MockData.CustomerQueryResult;
 
+                //Act
                 var responseString = await _httpClient.GetStringAsync($"v1/customers/{customer.Id}");
                 var response = JsonConvert.DeserializeObject<CustomerViewModel>(responseString);
 
                 TestContext.WriteLine(response.ToJson());
 
+                //Assert
                 Assert.Multiple(() =>
                 {
                     Assert.That(response.Id, Is.EqualTo(customer.Id));
@@ -36,6 +39,7 @@ namespace POC.Grpc.Api.Application.Test.Contract.Controllers
             }
             catch (HttpRequestException e)
             {
+                //Assert
                 Assert.Inconclusive(e.Message);
             }
         }
@@ -45,15 +49,18 @@ namespace POC.Grpc.Api.Application.Test.Contract.Controllers
         {
             try
             {
+                //Act
                 var responseString = await _httpClient.GetStringAsync($"v1/customers/0");
                 var response = JsonConvert.DeserializeObject<CustomerViewModel>(responseString);
 
                 TestContext.WriteLine(response.ToJson());
 
+                //Assert
                 Assert.That(response, Is.Null);
             }
             catch (HttpRequestException e)
             {
+                //Assert
                 Assert.Inconclusive(e.Message);
             }
         }
@@ -63,13 +70,16 @@ namespace POC.Grpc.Api.Application.Test.Contract.Controllers
         {
             try
             {
+                //Arrange
                 var customers = MockData.ListCustomerQueryResult;
 
+                //Act
                 var responseString = await _httpClient.GetStringAsync($"v1/customers");
                 var response = JsonConvert.DeserializeObject<List<CustomerViewModel>>(responseString);
 
                 TestContext.WriteLine(response.ToJson());
 
+                //Assert
                 Assert.Multiple(() =>
                 {
                     Assert.That(response[0].Id, Is.EqualTo(customers[0].Id));
@@ -99,6 +109,7 @@ namespace POC.Grpc.Api.Application.Test.Contract.Controllers
             }
             catch (HttpRequestException e)
             {
+                //Assert
                 Assert.Inconclusive(e.Message);
             }
         }

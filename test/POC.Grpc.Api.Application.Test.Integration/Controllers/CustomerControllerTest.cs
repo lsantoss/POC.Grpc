@@ -19,14 +19,17 @@ namespace POC.Grpc.Api.Application.Test.Integration.Controllers
         [Test]
         public async Task GetAsync_SuccessAsync()
         {
+            //Arrange
             var customer = MockData.CustomerQueryResult;
 
+            //Act
             var actionResult = await customerController.GetAsync(customer.Id);
             var actionResultJson = JsonConvert.SerializeObject(actionResult);
             var response = JsonConvert.DeserializeObject<ControllerResponse<CustomerQueryResult>>(actionResultJson);
 
             TestContext.WriteLine(response.ToJson());
 
+            //Assert
             Assert.Multiple(() =>
             {
                 Assert.That(response.StatusCode, Is.EqualTo(200));
@@ -43,12 +46,14 @@ namespace POC.Grpc.Api.Application.Test.Integration.Controllers
         [Test]
         public async Task GetAsync_Non_Registred_Customer_SuccessAsync()
         {
+            //Act
             var actionResult = await customerController.GetAsync(0);
             var actionResultJson = JsonConvert.SerializeObject(actionResult);
             var response = JsonConvert.DeserializeObject<ControllerResponse<CustomerQueryResult>>(actionResultJson);
 
             TestContext.WriteLine(response.ToJson());
 
+            //Assert
             Assert.Multiple(() =>
             {
                 Assert.That(response.StatusCode, Is.EqualTo(204));
@@ -59,14 +64,17 @@ namespace POC.Grpc.Api.Application.Test.Integration.Controllers
         [Test]
         public async Task ListAsync_SuccessAsync()
         {
+            //Arrange
             var customers = MockData.ListCustomerQueryResult;
 
+            //Act
             var actionResult = await customerController.ListAsync();
             var actionResultJson = JsonConvert.SerializeObject(actionResult);
             var response = JsonConvert.DeserializeObject<ControllerResponse<List<CustomerQueryResult>>>(actionResultJson);
 
             TestContext.WriteLine(response.ToJson());
 
+            //Assert
             Assert.Multiple(() =>
             {
                 Assert.That(response.StatusCode, Is.EqualTo(200));

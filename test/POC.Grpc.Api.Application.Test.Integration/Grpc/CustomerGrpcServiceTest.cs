@@ -20,13 +20,16 @@ namespace POC.Grpc.Api.Application.Test.Integration.Grpc
         [Test]
         public async Task GetAsync_Success()
         {
+            //Arrange
             var customer = MockData.CustomerQueryResult;
 
+            //Act
             var request = new GetByInt64IdRequest() { Id = customer.Id };
             var response = await customerGrpcService.Get(request, null);
 
             TestContext.WriteLine(response.ToJson());
 
+            //Assert
             Assert.Multiple(() =>
             {
                 var units = decimal.ToInt64(customer.CashBalanceDecimal);
@@ -46,11 +49,13 @@ namespace POC.Grpc.Api.Application.Test.Integration.Grpc
         [Test]
         public async Task GetAsync_Non_Registred_Customer_Success()
         {
+            //Act
             var request = new GetByInt64IdRequest() { Id = 0 };
             var response = await customerGrpcService.Get(request, null);
 
             TestContext.WriteLine(response.ToJson());
 
+            //Asset
             Assert.Multiple(() =>
             {
                 Assert.That(response.Id, Is.Zero);
@@ -66,12 +71,15 @@ namespace POC.Grpc.Api.Application.Test.Integration.Grpc
         [Test]
         public async Task ListAsync_Success()
         {
+            //Arrange
             var customers = MockData.ListCustomerQueryResult;
 
+            //Act
             var response = await customerGrpcService.List(new Empty(), null);
 
             TestContext.WriteLine(response.ToJson());
 
+            //Assert
             Assert.Multiple(() =>
             {
                 var units = decimal.ToInt64(customers[0].CashBalanceDecimal);

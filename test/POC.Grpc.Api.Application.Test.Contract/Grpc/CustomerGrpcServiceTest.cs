@@ -20,13 +20,16 @@ namespace POC.Grpc.Api.Application.Test.Contract.Grpc
         {
             try
             {
+                //Arrange
                 var customer = MockData.CustomerResponse;
 
+                //Act
                 var request = new GetByInt64IdRequest() { Id = customer.Id };
                 var response = await _customerServiceClient.GetAsync(request);
 
                 TestContext.WriteLine(response.ToJson());
 
+                //Assert
                 Assert.Multiple(() =>
                 {
                     Assert.That(response.Id, Is.EqualTo(customer.Id));
@@ -40,6 +43,7 @@ namespace POC.Grpc.Api.Application.Test.Contract.Grpc
             }
             catch (RpcException e)
             {
+                //Assert
                 Assert.Inconclusive(e.Message);
             }
         }
@@ -49,11 +53,13 @@ namespace POC.Grpc.Api.Application.Test.Contract.Grpc
         {
             try
             {
+                //Act
                 var request = new GetByInt64IdRequest() { Id = 0 };
                 var response = await _customerServiceClient.GetAsync(request);
 
                 TestContext.WriteLine(response.ToJson());
 
+                //Assert
                 Assert.Multiple(() =>
                 {
                     Assert.That(response.Id, Is.Zero);
@@ -67,6 +73,7 @@ namespace POC.Grpc.Api.Application.Test.Contract.Grpc
             }
             catch (RpcException e)
             {
+                //Assert
                 Assert.Inconclusive(e.Message);
             }
         }
@@ -76,12 +83,15 @@ namespace POC.Grpc.Api.Application.Test.Contract.Grpc
         {
             try
             {
+                //Arrange
                 var customerList = MockData.CustomerListResponse;
 
+                //Act
                 var response = await _customerServiceClient.ListAsync(new Empty());
 
                 TestContext.WriteLine(response.ToJson());
 
+                //Assert
                 Assert.Multiple(() =>
                 {
                     Assert.That(response.Customers[0].Id, Is.EqualTo(customerList.Customers[0].Id));
@@ -111,6 +121,7 @@ namespace POC.Grpc.Api.Application.Test.Contract.Grpc
             }
             catch (RpcException e)
             {
+                //Assert
                 Assert.Inconclusive(e.Message);
             }
         }

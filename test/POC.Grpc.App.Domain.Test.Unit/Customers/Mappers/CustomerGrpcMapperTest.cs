@@ -16,32 +16,39 @@ namespace POC.Grpc.App.Domain.Test.Unit.Customers.Mappers
         [Test]
         public void MapToCustomerViewModel_Null_Parameter_Success()
         {
+            //Act
             var result = CustomerGrpcMapper.MapToCustomerViewModel(null);
 
             TestContext.WriteLine(result.ToJson());
 
+            //Assert
             Assert.That(result, Is.Null);
         }
 
         [Test]
         public void MapToCustomerViewModel_New_Object_Parameter_Success()
         {
+            //Act
             var result = CustomerGrpcMapper.MapToCustomerViewModel(new CustomerResponse());
 
             TestContext.WriteLine(result.ToJson());
 
+            //Assert
             Assert.That(result, Is.Null);
         }
 
         [Test]
         public void MapToCustomerViewModel_Valid_Customer_Parameter_Success()
         {
+            //Arrange
             var customer = MockData.CustomerResponse;
 
+            //Act
             var result = CustomerGrpcMapper.MapToCustomerViewModel(customer);
 
             TestContext.WriteLine(result.ToJson());
 
+            //Assert
             Assert.Multiple(() =>
             {
                 var cashBalanceDecimal = customer.CashBalanceDecimal.Units + customer.CashBalanceDecimal.Nanos / NanoFactor;
@@ -60,10 +67,12 @@ namespace POC.Grpc.App.Domain.Test.Unit.Customers.Mappers
         [Test]
         public void MapToListOfCustomerViewModel_Null_Parameter_Success()
         {
+            //Act
             var result = CustomerGrpcMapper.MapToListOfCustomerViewModel(null);
 
             TestContext.WriteLine(result.ToJson());
 
+            //Assert
             Assert.Multiple(() =>
             {
                 Assert.That(result, Is.Empty);
@@ -74,10 +83,12 @@ namespace POC.Grpc.App.Domain.Test.Unit.Customers.Mappers
         [Test]
         public void MapToListOfCustomerViewModel_Empty_List_Parameter_Success()
         {
+            //Act
             var result = CustomerGrpcMapper.MapToListOfCustomerViewModel(new CustomerListResponse());
 
             TestContext.WriteLine(result.ToJson());
 
+            //Assert
             Assert.Multiple(() =>
             {
                 Assert.That(result, Is.Empty);
@@ -88,12 +99,15 @@ namespace POC.Grpc.App.Domain.Test.Unit.Customers.Mappers
         [Test]
         public void MapToListOfCustomerViewModel_Valid_List_Parameter_Success()
         {
+            //Arrange
             var customerList = MockData.CustomerListResponse;
 
+            //Act
             var result = CustomerGrpcMapper.MapToListOfCustomerViewModel(customerList);
 
             TestContext.WriteLine(result.ToJson());
-                        
+
+            //Assert         
             Assert.Multiple(() =>
             {
                 var cashBalanceDecimal = customerList.Customers[0].CashBalanceDecimal.Units + customerList.Customers[0].CashBalanceDecimal.Nanos / NanoFactor;
