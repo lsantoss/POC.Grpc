@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using POC.Grpc.App.Infra.Crosscutting;
+using POC.Grpc.App.Application.Extensions;
 
 namespace POC.Grpc.App.Application
 {

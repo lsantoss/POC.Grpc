@@ -15,7 +15,9 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\POC.Grpc.App.Infra.Crosscutting\POC.Grpc.App.Infra.Crosscutting.csproj" />
+    <ProjectReference Include="..\POC.Grpc.App.Domain\POC.Grpc.App.Domain.csproj" />
+    <ProjectReference Include="..\POC.Grpc.App.Infra.Service\POC.Grpc.App.Infra.Service.csproj" />
+    <ProjectReference Include="..\POC.Grpc.App.Infra\POC.Grpc.App.Infra.csproj" />
   </ItemGroup>
 
 </Project>
