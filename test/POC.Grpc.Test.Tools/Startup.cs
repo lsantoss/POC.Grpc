@@ -31,7 +31,6 @@ namespace POC.Grpc.Test.Tools
 
         protected IConfiguration GetConfigurationApi() => _configurationApi;
         protected IConfiguration GetConfigurationApp() => _configurationApp;
-        protected IServiceCollection GetServices() => _services;
         protected T GetServices<T>() => (T)_serviceProvider.GetService(typeof(T));
     }
 }

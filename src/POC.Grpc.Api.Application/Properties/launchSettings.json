@@ -22,6 +22,17 @@
       "launchBrowser": true,
       "launchUrl": "index.html"
     },
+    "POC.Grpc.Api - Test (Contract Test)": {
+      "applicationUrl": "http://localhost:5000/",
+      "commandName": "Project",
+      "environmentVariables": {
+        "HTTP1_PORT": "5000",
+        "HTTP2_PORT": "6000",
+        "ASPNETCORE_ENVIRONMENT": "Test"
+      },
+      "launchBrowser": true,
+      "launchUrl": "index.html"
+    },
     "Docker": {
       "commandName": "Docker",
       "launchBrowser": true,
