@@ -1,12 +1,12 @@
 ﻿using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using POC.Grpc.Api.Infra.Settings;
 using POC.Grpc.Api.Domain.Customers.Interfaces.Repositories;
+using POC.Grpc.Api.Infra.Data.Customers.Repositories;
 using POC.Grpc.Api.Infra.Data.DataContexts;
 using POC.Grpc.Api.Infra.Data.DataContexts.Interfaces;
-using POC.Grpc.Api.Infra.Data.Customers.Repositories;
+using POC.Grpc.Api.Infra.Settings;
 
-namespace POC.Grpc.Api.Infra.Crosscutting
+namespace POC.Grpc.Api.Application.Extensions
 {
     public static class DependencyInjectionExtension
     {

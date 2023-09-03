@@ -20,12 +20,15 @@ namespace POC.Grpc.Api.Infra.Data.Customers.Repositories
         public async Task<CustomerQueryResult> GetAsync(long id)
         {
             _parametrs.Add("Id", id, DbType.Int64);
-            return (await _dataContext.Connection.QueryAsync<CustomerQueryResult>(CustomerQueries.Get, _parametrs)).FirstOrDefault();
+
+            var result = await _dataContext.Connection.QueryAsync<CustomerQueryResult>(CustomerQueries.Get, _parametrs);
+            return result.FirstOrDefault();
         }
 
         public async Task<List<CustomerQueryResult>> ListAsync()
         {
-            return (await _dataContext.Connection.QueryAsync<CustomerQueryResult>(CustomerQueries.List)).ToList();
+            var result = await _dataContext.Connection.QueryAsync<CustomerQueryResult>(CustomerQueries.List);
+            return result.ToList();
         }
     }
 }

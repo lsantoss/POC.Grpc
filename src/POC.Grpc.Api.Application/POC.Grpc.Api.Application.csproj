@@ -13,7 +13,9 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\POC.Grpc.Api.Infra.Crosscutting\POC.Grpc.Api.Infra.Crosscutting.csproj" />
+    <ProjectReference Include="..\POC.Grpc.Api.Domain\POC.Grpc.Api.Domain.csproj" />
+    <ProjectReference Include="..\POC.Grpc.Api.Infra.Data\POC.Grpc.Api.Infra.Data.csproj" />
+    <ProjectReference Include="..\POC.Grpc.Api.Infra\POC.Grpc.Api.Infra.csproj" />
   </ItemGroup>
 
 </Project>

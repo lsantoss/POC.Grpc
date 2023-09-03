@@ -30,7 +30,7 @@ namespace POC.Grpc.Api.Domain.Customers.Mappers
                 return customerListResponse;
 
             foreach (var customer in customers)
-                customerListResponse.Customers.Add(MapToCustomerResponse(customer));
+                customerListResponse.Customers.Add(customer.MapToCustomerResponse());
 
             return customerListResponse;
         }

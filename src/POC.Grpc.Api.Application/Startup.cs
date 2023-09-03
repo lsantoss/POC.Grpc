@@ -4,8 +4,8 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
+using POC.Grpc.Api.Application.Extensions;
 using POC.Grpc.Api.Application.Grpc;
-using POC.Grpc.Api.Infra.Crosscutting;
 using System;
 
 namespace POC.Grpc.Api.Application
