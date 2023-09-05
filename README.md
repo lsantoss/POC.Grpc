@@ -14,23 +14,23 @@ And finally, a class library that centralizes the contracts for the grpc service
 
 ---
 
-## Libraries (only most important):
-- coverlet.collector
+## Dependencies:
 - Dapper
 - Google.Protobuf
 - Grpc.AspNetCore.Server
 - Grpc.Net.ClientFactory
 - Grpc.Tools
 - Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation
-- Microsoft.Extensions.Configuration.Abstractions
-- Microsoft.Extensions.Configuration.Json
-- Microsoft.Extensions.DependencyInjection.Abstractions
-- Microsoft.NET.Test.Sdk
 - Microsoft.VisualStudio.Azure.Containers.Tools.Targets
 - Microsoft.VisualStudio.Web.CodeGeneration.Design
 - Newtonsoft.Json
+- Swashbuckle.AspNetCore
+- System.Data.SqlClient
+
+## Dependencies (Test projects):
+- coverlet.collector
+- Microsoft.Extensions.Configuration.Json
+- Microsoft.NET.Test.Sdk
 - NUnit
 - NUnit.Analyzers
 - NUnit3TestAdapter
-- Swashbuckle.AspNetCore
-- System.Data.SqlClient

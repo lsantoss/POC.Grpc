@@ -1,8 +1,6 @@
-﻿using Grpc.Core;
-using NUnit.Framework;
+﻿using NUnit.Framework;
 using POC.Grpc.App.Domain.Customers.Interfaces.Services.Rest;
 using POC.Grpc.Test.Tools.Base.Integration;
-using POC.Grpc.Test.Tools.Extensions;
 using System.Net.Http;
 using System.Threading.Tasks;
 
@@ -15,7 +13,7 @@ namespace POC.Grpc.App.Infra.Service.Test.Integration.Customers.Services.Rest
         public CustomerRestServiceTest() => _customerRestService = GetServices<ICustomerRestService>();
 
         [Test]
-        public async Task GetAsync_Success()
+        public async Task GetAsync_RegistredCustomer_ShouldGetCustomerRecord()
         {
             try
             {
@@ -24,8 +22,6 @@ namespace POC.Grpc.App.Infra.Service.Test.Integration.Customers.Services.Rest
 
                 //Act
                 var result = await _customerRestService.GetAsync(customer.Id);
-
-                TestContext.WriteLine(result.ToJson());
 
                 //Assert
                 Assert.Multiple(() =>
@@ -47,14 +43,12 @@ namespace POC.Grpc.App.Infra.Service.Test.Integration.Customers.Services.Rest
         }
 
         [Test]
-        public async Task GetAsync_Non_Registred_Customer_Success()
+        public async Task GetAsync_NonRegistredCustomer_ShouldReturnNull()
         {
             try
             {
                 //Act
                 var result = await _customerRestService.GetAsync(0);
-
-                TestContext.WriteLine(result.ToJson());
 
                 //Assert
                 Assert.That(result, Is.Null);
@@ -67,7 +61,7 @@ namespace POC.Grpc.App.Infra.Service.Test.Integration.Customers.Services.Rest
         }
 
         [Test]
-        public async Task ListAsync_Success()
+        public async Task ListAsync_ShouldReturnListOfCustomers()
         {
             try
             {
@@ -76,8 +70,6 @@ namespace POC.Grpc.App.Infra.Service.Test.Integration.Customers.Services.Rest
 
                 //Act
                 var result = await _customerRestService.ListAsync();
-
-                TestContext.WriteLine(result.ToJson());
 
                 //Assert
                 Assert.Multiple(() =>

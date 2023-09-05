@@ -2,7 +2,6 @@
 using NUnit.Framework;
 using POC.Grpc.App.Domain.Customers.Models;
 using POC.Grpc.Test.Tools.Base.Contract;
-using POC.Grpc.Test.Tools.Extensions;
 using System.Collections.Generic;
 using System.Net.Http;
 using System.Threading.Tasks;
@@ -12,7 +11,7 @@ namespace POC.Grpc.Api.Application.Test.Contract.Controllers
     internal class CustomerControllerTest : ContractTest
     {
         [Test]
-        public async Task GetAsync_Success()
+        public async Task GetAsync_RegistredCustomer_ShouldGetCustomerRecord()
         {
             try
             {
@@ -22,8 +21,6 @@ namespace POC.Grpc.Api.Application.Test.Contract.Controllers
                 //Act
                 var responseString = await _httpClient.GetStringAsync($"v1/customers/{customer.Id}");
                 var response = JsonConvert.DeserializeObject<CustomerViewModel>(responseString);
-
-                TestContext.WriteLine(response.ToJson());
 
                 //Assert
                 Assert.Multiple(() =>
@@ -45,15 +42,13 @@ namespace POC.Grpc.Api.Application.Test.Contract.Controllers
         }
 
         [Test]
-        public async Task GetAsync_Non_Registred_Customer_Success()
+        public async Task GetAsync_NonRegistredCustomer_ShouldReturnNull()
         {
             try
             {
                 //Act
                 var responseString = await _httpClient.GetStringAsync($"v1/customers/0");
                 var response = JsonConvert.DeserializeObject<CustomerViewModel>(responseString);
-
-                TestContext.WriteLine(response.ToJson());
 
                 //Assert
                 Assert.That(response, Is.Null);
@@ -66,7 +61,7 @@ namespace POC.Grpc.Api.Application.Test.Contract.Controllers
         }
 
         [Test]
-        public async Task ListAsync_Success()
+        public async Task ListAsync_ShouldReturnListOfCustomers()
         {
             try
             {
@@ -76,8 +71,6 @@ namespace POC.Grpc.Api.Application.Test.Contract.Controllers
                 //Act
                 var responseString = await _httpClient.GetStringAsync($"v1/customers");
                 var response = JsonConvert.DeserializeObject<List<CustomerViewModel>>(responseString);
-
-                TestContext.WriteLine(response.ToJson());
 
                 //Assert
                 Assert.Multiple(() =>

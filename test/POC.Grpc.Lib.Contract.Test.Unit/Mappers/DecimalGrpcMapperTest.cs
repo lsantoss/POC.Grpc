@@ -17,7 +17,7 @@ namespace POC.Grpc.Lib.Contract.Test.Unit.Mappers
         [TestCase(0, 0)]
         [TestCase(1, 0)]
         [TestCase(1, 75)]
-        public void Map_Decimal_To_DecimalGrpc(long units, int nanos)
+        public void Map_DecimalToDecimalGrpc_ShouldGenerateTheSameValue(long units, int nanos)
         {
             //Arrange
             var input = Convert.ToDecimal($"{units},{nanos}");
@@ -25,10 +25,6 @@ namespace POC.Grpc.Lib.Contract.Test.Unit.Mappers
             //Act
             var decimalGrpc = DecimalGrpcMapper.Map(input);
             var valueDecimal = DecimalGrpcMapper.Map(decimalGrpc);
-
-            TestContext.WriteLine($"Input: {input}");
-            TestContext.WriteLine($"Decimal: {valueDecimal}");
-            TestContext.WriteLine($"DecimalGrpc: {decimalGrpc}");
 
             //Assert
             Assert.That(valueDecimal, Is.EqualTo(input));
@@ -40,7 +36,7 @@ namespace POC.Grpc.Lib.Contract.Test.Unit.Mappers
         [TestCase(0)]
         [TestCase(1)]
         [TestCase(175)]
-        public void Map_DecimalGrpc_To_Decimal_Valid_Parameter(decimal value)
+        public void Map_DecimalGrpcToDecimal_DecimalParameter_ShouldGenerateTheSameValue(decimal value)
         {
             //Arrange
             var units = decimal.ToInt64(value);
@@ -50,22 +46,15 @@ namespace POC.Grpc.Lib.Contract.Test.Unit.Mappers
             //Act
             var valueDecimal = DecimalGrpcMapper.Map(decimalGrpc);
 
-            TestContext.WriteLine($"Input: {value}");
-            TestContext.WriteLine($"Decimal: {valueDecimal}");
-            TestContext.WriteLine($"DecimalGrpc: {decimalGrpc}");
-
             //Assert
             Assert.That(valueDecimal, Is.EqualTo(value));
         }
 
         [Test]
-        public void Map_DecimalGrpc_To_Decimal_Null_Parameter()
+        public void Map_DecimalGrpcToDecimal_NullParameter_ShouldGenerateTheValueZero()
         {
             //Act
             var valueDecimal = DecimalGrpcMapper.Map(null);
-
-            TestContext.WriteLine($"Decimal: {valueDecimal}");
-            TestContext.WriteLine($"DecimalGrpc: {null}");
 
             //Assert
             Assert.That(valueDecimal, Is.Zero);

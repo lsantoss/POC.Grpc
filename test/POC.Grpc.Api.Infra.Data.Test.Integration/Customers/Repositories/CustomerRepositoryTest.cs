@@ -1,7 +1,6 @@
 ﻿using NUnit.Framework;
 using POC.Grpc.Api.Domain.Customers.Interfaces.Repositories;
 using POC.Grpc.Test.Tools.Base.Integration;
-using POC.Grpc.Test.Tools.Extensions;
 using System.Threading.Tasks;
 
 namespace POC.Grpc.Api.Infra.Data.Test.Integration.Customers.Repositories
@@ -13,15 +12,13 @@ namespace POC.Grpc.Api.Infra.Data.Test.Integration.Customers.Repositories
         public CustomerRepositoryTest() => _customerRepository = GetServices<ICustomerRepository>();
 
         [Test]
-        public async Task GetAsync_SuccessAsync()
+        public async Task GetAsync_RegistredCustomer_ShouldGetCustomerRecord()
         {
             //Arrange
             var customer = MockData.CustomerQueryResult;
 
             //Act
             var result = await _customerRepository.GetAsync(customer.Id);
-
-            TestContext.WriteLine(result.ToJson());
 
             //Assert
             Assert.Multiple(() =>
@@ -37,27 +34,23 @@ namespace POC.Grpc.Api.Infra.Data.Test.Integration.Customers.Repositories
         }
 
         [Test]
-        public async Task GetAsync_Non_Registred_Customer_Success()
+        public async Task GetAsync_NonRegistredCustomer_ShouldReturnNull()
         {
             //Act
             var result = await _customerRepository.GetAsync(0);
-
-            TestContext.WriteLine(result.ToJson());
 
             //Assert
             Assert.That(result, Is.Null);
         }
 
         [Test]
-        public async Task ListAsync_SuccessAsync()
+        public async Task ListAsync_ShouldReturnListOfCustomers()
         {
             //Arrange
             var customers = MockData.ListCustomerQueryResult;
 
             //Act
             var result = await _customerRepository.ListAsync();
-
-            TestContext.WriteLine(result.ToJson());
 
             //Assert
             Assert.Multiple(() =>

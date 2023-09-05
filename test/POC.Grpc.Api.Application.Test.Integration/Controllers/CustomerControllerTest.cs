@@ -3,7 +3,6 @@ using NUnit.Framework;
 using POC.Grpc.Api.Application.Controllers;
 using POC.Grpc.Api.Domain.Customers.Queries.Result;
 using POC.Grpc.Test.Tools.Base.Integration;
-using POC.Grpc.Test.Tools.Extensions;
 using POC.Grpc.Test.Tools.Models.Common;
 using System.Collections.Generic;
 using System.Threading.Tasks;
@@ -17,7 +16,7 @@ namespace POC.Grpc.Api.Application.Test.Integration.Controllers
         public CustomerControllerTest() => customerController = GetServices<CustomerController>();
 
         [Test]
-        public async Task GetAsync_SuccessAsync()
+        public async Task GetAsync_RegistredCustomer_ShouldGetCustomerRecord()
         {
             //Arrange
             var customer = MockData.CustomerQueryResult;
@@ -26,8 +25,6 @@ namespace POC.Grpc.Api.Application.Test.Integration.Controllers
             var actionResult = await customerController.GetAsync(customer.Id);
             var actionResultJson = JsonConvert.SerializeObject(actionResult);
             var response = JsonConvert.DeserializeObject<ControllerResponse<CustomerQueryResult>>(actionResultJson);
-
-            TestContext.WriteLine(response.ToJson());
 
             //Assert
             Assert.Multiple(() =>
@@ -44,14 +41,12 @@ namespace POC.Grpc.Api.Application.Test.Integration.Controllers
         }
 
         [Test]
-        public async Task GetAsync_Non_Registred_Customer_SuccessAsync()
+        public async Task GetAsync_NonRegistredCustomer_ShouldReturnNull()
         {
             //Act
             var actionResult = await customerController.GetAsync(0);
             var actionResultJson = JsonConvert.SerializeObject(actionResult);
             var response = JsonConvert.DeserializeObject<ControllerResponse<CustomerQueryResult>>(actionResultJson);
-
-            TestContext.WriteLine(response.ToJson());
 
             //Assert
             Assert.Multiple(() =>
@@ -62,7 +57,7 @@ namespace POC.Grpc.Api.Application.Test.Integration.Controllers
         }
 
         [Test]
-        public async Task ListAsync_SuccessAsync()
+        public async Task ListAsync_ShouldReturnListOfCustomers()
         {
             //Arrange
             var customers = MockData.ListCustomerQueryResult;
@@ -71,8 +66,6 @@ namespace POC.Grpc.Api.Application.Test.Integration.Controllers
             var actionResult = await customerController.ListAsync();
             var actionResultJson = JsonConvert.SerializeObject(actionResult);
             var response = JsonConvert.DeserializeObject<ControllerResponse<List<CustomerQueryResult>>>(actionResultJson);
-
-            TestContext.WriteLine(response.ToJson());
 
             //Assert
             Assert.Multiple(() =>

@@ -4,7 +4,6 @@ using POC.Grpc.App.Domain.Customers.Models;
 using POC.Grpc.Lib.Contract.Proto.Customers.MessagesResponse;
 using POC.Grpc.Test.Tools.Base.Unit;
 using POC.Grpc.Test.Tools.Constants;
-using POC.Grpc.Test.Tools.Extensions;
 using System.Collections.Generic;
 
 namespace POC.Grpc.App.Domain.Test.Unit.Customers.Mappers
@@ -14,39 +13,33 @@ namespace POC.Grpc.App.Domain.Test.Unit.Customers.Mappers
         private const decimal NanoFactor = DecimalConstants.NanoFactor;
 
         [Test]
-        public void MapToCustomerViewModel_Null_Parameter_Success()
+        public void MapToCustomerViewModel_NullParameter_ShouldGenerateNullValue()
         {
             //Act
             var result = CustomerGrpcMapper.MapToCustomerViewModel(null);
 
-            TestContext.WriteLine(result.ToJson());
-
             //Assert
             Assert.That(result, Is.Null);
         }
 
         [Test]
-        public void MapToCustomerViewModel_New_Object_Parameter_Success()
+        public void MapToCustomerViewModel_NewObjectParameter_ShouldGenerateNullValue()
         {
             //Act
             var result = CustomerGrpcMapper.MapToCustomerViewModel(new CustomerResponse());
 
-            TestContext.WriteLine(result.ToJson());
-
             //Assert
             Assert.That(result, Is.Null);
         }
 
         [Test]
-        public void MapToCustomerViewModel_Valid_Customer_Parameter_Success()
+        public void MapToCustomerViewModel_CustomerResponseParameter_ShouldGenerateCustomerViewModel()
         {
             //Arrange
             var customer = MockData.CustomerResponse;
 
             //Act
             var result = CustomerGrpcMapper.MapToCustomerViewModel(customer);
-
-            TestContext.WriteLine(result.ToJson());
 
             //Assert
             Assert.Multiple(() =>
@@ -65,13 +58,11 @@ namespace POC.Grpc.App.Domain.Test.Unit.Customers.Mappers
         }
 
         [Test]
-        public void MapToListOfCustomerViewModel_Null_Parameter_Success()
+        public void MapToListOfCustomerViewModel_NullParameter_ShouldGenerateListEmpty()
         {
             //Act
             var result = CustomerGrpcMapper.MapToListOfCustomerViewModel(null);
 
-            TestContext.WriteLine(result.ToJson());
-
             //Assert
             Assert.Multiple(() =>
             {
@@ -81,13 +72,11 @@ namespace POC.Grpc.App.Domain.Test.Unit.Customers.Mappers
         }
 
         [Test]
-        public void MapToListOfCustomerViewModel_Empty_List_Parameter_Success()
+        public void MapToListOfCustomerViewModel_NewCustomerListResponseParameter_ShouldGenerateListEmpty()
         {
             //Act
             var result = CustomerGrpcMapper.MapToListOfCustomerViewModel(new CustomerListResponse());
 
-            TestContext.WriteLine(result.ToJson());
-
             //Assert
             Assert.Multiple(() =>
             {
@@ -97,15 +86,13 @@ namespace POC.Grpc.App.Domain.Test.Unit.Customers.Mappers
         }
 
         [Test]
-        public void MapToListOfCustomerViewModel_Valid_List_Parameter_Success()
+        public void MapToListOfCustomerViewModel_CustomerListResponseParameter_ShouldGenerateListCustomerViewModel()
         {
             //Arrange
             var customerList = MockData.CustomerListResponse;
 
             //Act
             var result = CustomerGrpcMapper.MapToListOfCustomerViewModel(customerList);
-
-            TestContext.WriteLine(result.ToJson());
 
             //Assert         
             Assert.Multiple(() =>

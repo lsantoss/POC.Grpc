@@ -2,7 +2,6 @@
 using POC.Grpc.Api.Infra.Data.DataContexts;
 using POC.Grpc.Api.Infra.Settings;
 using POC.Grpc.Test.Tools.Base.Integration;
-using POC.Grpc.Test.Tools.Extensions;
 using System.Data;
 
 namespace POC.Grpc.Api.Infra.Data.Test.Integration.DataContexts
@@ -10,7 +9,7 @@ namespace POC.Grpc.Api.Infra.Data.Test.Integration.DataContexts
     internal class DataContextTest : IntegrationTest
     {
         [Test]
-        public void Contructor_Success()
+        public void Contructor_ConnectionMustBeOpen()
         {
             //Arrange
             var configuration = GetConfigurationApi();
@@ -20,14 +19,12 @@ namespace POC.Grpc.Api.Infra.Data.Test.Integration.DataContexts
             //Act
             var dataContext = new DataContext(appSettings);
 
-            TestContext.WriteLine(dataContext.ToJson());
-
             //Assert
             Assert.That(dataContext.Connection.State, Is.EqualTo(ConnectionState.Open));
         }
 
         [Test]
-        public void Dispose_Success()
+        public void Dispose_ConnectionMustBeClosed()
         {
             //Arrange
             var configuration = GetConfigurationApi();

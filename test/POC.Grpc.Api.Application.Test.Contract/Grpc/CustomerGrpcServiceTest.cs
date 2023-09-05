@@ -3,7 +3,6 @@ using Grpc.Core;
 using NUnit.Framework;
 using POC.Grpc.Lib.Contract.Proto.Common.MessagesRequest;
 using POC.Grpc.Test.Tools.Base.Contract;
-using POC.Grpc.Test.Tools.Extensions;
 using System.Threading.Tasks;
 using static POC.Grpc.Lib.Contract.Proto.Customers.Services.CustomerService;
 
@@ -16,7 +15,7 @@ namespace POC.Grpc.Api.Application.Test.Contract.Grpc
         public CustomerGrpcServiceTest() => _customerServiceClient = GetServices<CustomerServiceClient>();
 
         [Test]
-        public async Task GetAsync_Success()
+        public async Task GetAsync_RegistredCustomer_ShouldGetCustomerRecord()
         {
             try
             {
@@ -26,8 +25,6 @@ namespace POC.Grpc.Api.Application.Test.Contract.Grpc
                 //Act
                 var request = new GetByInt64IdRequest() { Id = customer.Id };
                 var response = await _customerServiceClient.GetAsync(request);
-
-                TestContext.WriteLine(response.ToJson());
 
                 //Assert
                 Assert.Multiple(() =>
@@ -49,15 +46,13 @@ namespace POC.Grpc.Api.Application.Test.Contract.Grpc
         }
 
         [Test]
-        public async Task GetAsync_Non_Registred_Customer_Success()
+        public async Task GetAsync_NonRegistredCustomer_ShouldReturnNull()
         {
             try
             {
                 //Act
                 var request = new GetByInt64IdRequest() { Id = 0 };
                 var response = await _customerServiceClient.GetAsync(request);
-
-                TestContext.WriteLine(response.ToJson());
 
                 //Assert
                 Assert.Multiple(() =>
@@ -79,7 +74,7 @@ namespace POC.Grpc.Api.Application.Test.Contract.Grpc
         }
 
         [Test]
-        public async Task ListAsync_Success()
+        public async Task ListAsync_ShouldReturnListOfCustomers()
         {
             try
             {
@@ -88,8 +83,6 @@ namespace POC.Grpc.Api.Application.Test.Contract.Grpc
 
                 //Act
                 var response = await _customerServiceClient.ListAsync(new Empty());
-
-                TestContext.WriteLine(response.ToJson());
 
                 //Assert
                 Assert.Multiple(() =>

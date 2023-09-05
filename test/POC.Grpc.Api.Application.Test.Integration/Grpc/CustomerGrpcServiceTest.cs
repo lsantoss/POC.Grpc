@@ -4,7 +4,6 @@ using POC.Grpc.Api.Application.Grpc;
 using POC.Grpc.Lib.Contract.Proto.Common.MessagesRequest;
 using POC.Grpc.Test.Tools.Base.Integration;
 using POC.Grpc.Test.Tools.Constants;
-using POC.Grpc.Test.Tools.Extensions;
 using System.Threading.Tasks;
 
 namespace POC.Grpc.Api.Application.Test.Integration.Grpc
@@ -18,7 +17,7 @@ namespace POC.Grpc.Api.Application.Test.Integration.Grpc
         public CustomerGrpcServiceTest() => customerGrpcService = GetServices<CustomerGrpcService>();
 
         [Test]
-        public async Task GetAsync_Success()
+        public async Task GetAsync_RegistredCustomer_ShouldGetCustomerRecord()
         {
             //Arrange
             var customer = MockData.CustomerQueryResult;
@@ -26,8 +25,6 @@ namespace POC.Grpc.Api.Application.Test.Integration.Grpc
             //Act
             var request = new GetByInt64IdRequest() { Id = customer.Id };
             var response = await customerGrpcService.Get(request, null);
-
-            TestContext.WriteLine(response.ToJson());
 
             //Assert
             Assert.Multiple(() =>
@@ -47,13 +44,11 @@ namespace POC.Grpc.Api.Application.Test.Integration.Grpc
         }
 
         [Test]
-        public async Task GetAsync_Non_Registred_Customer_Success()
+        public async Task GetAsync_NonRegistredCustomer_ShouldReturnNull()
         {
             //Act
             var request = new GetByInt64IdRequest() { Id = 0 };
             var response = await customerGrpcService.Get(request, null);
-
-            TestContext.WriteLine(response.ToJson());
 
             //Asset
             Assert.Multiple(() =>
@@ -69,15 +64,13 @@ namespace POC.Grpc.Api.Application.Test.Integration.Grpc
         }
 
         [Test]
-        public async Task ListAsync_Success()
+        public async Task ListAsync_ShouldReturnListOfCustomers()
         {
             //Arrange
             var customers = MockData.ListCustomerQueryResult;
 
             //Act
             var response = await customerGrpcService.List(new Empty(), null);
-
-            TestContext.WriteLine(response.ToJson());
 
             //Assert
             Assert.Multiple(() =>

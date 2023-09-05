@@ -2,12 +2,12 @@
 {
     public class CustomerViewModel
     {
-        public long Id { get; set; }
-        public string Name { get; set; }
-        public int Age { get; set; }
-        public bool Active { get; set; }
-        public float CashBalanceFloat { get; set; }
-        public double CashBalanceDouble { get; set; }
-        public decimal CashBalanceDecimal { get; set; }
+        public long Id { get; init; }
+        public string Name { get; init; }
+        public int Age { get; init; }
+        public bool Active { get; init; }
+        public float CashBalanceFloat { get; init; }
+        public double CashBalanceDouble { get; init; }
+        public decimal CashBalanceDecimal { get; init; }
     }
 }
