@@ -4,33 +4,31 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>POC.Grpc.App</title>
-    <link rel="icon" type="image/x-icon" href="~/images/favicon.png">
+    <title>POC.Grpc</title>
+    <link rel="shortcut icon" type="image/png" href="~/images/favicon.png">
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="~/css/site.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/lib/toastr/toastr.css" />
 </head>
 <body>
     <header>
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
             <div class="container">
-                <a class="navbar-brand" asp-controller="Home" asp-action="Index">POC.Grpc.App</a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <a asp-controller="Customer" asp-action="Index" class="navbar-brand">POC.Grpc</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-                    <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-controller="CustomerRest" asp-action="Index">Rest</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-controller="CustomerGrpc" asp-action="Index">Grpc</a>
-                        </li>
-                    </ul>
-                </div>
             </div>
         </nav>
     </header>
+
     <div class="container">
+        <input type="hidden" id="toastr-success" value="@TempData["toastr-success"]" />
+        <input type="hidden" id="toastr-info" value="@TempData["toastr-info"]" />
+        <input type="hidden" id="toastr-warning" value="@TempData["toastr-warning"]" />
+        <input type="hidden" id="toastr-error" value="@TempData["toastr-error"]" />
+
         <main role="main" class="pb-3">
             @RenderBody()
         </main>
@@ -38,11 +36,12 @@
 
     <footer class="border-top footer text-muted">
         <div class="container">
-            &copy; Lucas Santos - @DateTime.Now.Year
+            &copy; @DateTime.Now.Year - POC.Grpc
         </div>
     </footer>
 
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/toastr/toastr.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
 

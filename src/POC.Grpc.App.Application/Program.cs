@@ -1,18 +1,14 @@
-using Microsoft.AspNetCore.Hosting;
-using Microsoft.Extensions.Hosting;
+using POC.Grpc.App.Application.Extensions.ServiceCollectionExtensions;
 
-namespace POC.Grpc.App.Application
-{
-    public class Program
-    {
-        public static void Main(string[] args) => CreateHostBuilder(args).Build().Run();
+var builder = WebApplication.CreateBuilder(args);
+builder.Services.AddGrpcClients(builder.Configuration);
+builder.Services.AddControllersWithViews().AddRazorRuntimeCompilation();
 
-        public static IHostBuilder CreateHostBuilder(string[] args)
-        {
-            return Host.CreateDefaultBuilder(args).ConfigureWebHostDefaults(webBuilder =>
-            {
-                webBuilder.UseStartup<Startup>();
-            });
-        }
-    }
-}
+var app = builder.Build();
+app.UseExceptionHandler("/Error/Error");
+app.UseHttpsRedirection();
+app.UseStaticFiles();
+app.UseRouting();
+app.UseAuthorization();
+app.MapControllerRoute("default", "{controller=Customer}/{action=Index}/{id?}");
+app.Run();

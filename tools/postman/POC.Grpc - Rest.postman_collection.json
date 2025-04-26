@@ -1,0 +1,38 @@
+{
+	"info": {
+		"_postman_id": "eff1fe5f-d7e7-4739-ab4a-6823f0658d6f",
+		"name": "POC.Grpc - Rest",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "6583061"
+	},
+	"item": [
+		{
+			"name": "v1",
+			"item": [
+				{
+					"name": "Infraestructure",
+					"item": [
+						{
+							"name": "Health Check",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{host_rest}}/v1/HealthCheck",
+									"host": [
+										"{{host_rest}}"
+									],
+									"path": [
+										"v1",
+										"HealthCheck"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		}
+	]
+}

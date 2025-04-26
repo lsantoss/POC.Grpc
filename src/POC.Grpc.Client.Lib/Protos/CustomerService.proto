@@ -1,0 +1,75 @@
+syntax = "proto3";
+
+import "google/protobuf/empty.proto";
+import "google/protobuf/timestamp.proto";
+
+option csharp_namespace = "POC.Grpc.Client.Lib.Protos.Customers.Services";
+
+// ---------------------------------- Service ---------------------------------- //
+service CustomerService {
+	rpc Get(GetRequest) returns (GetResponse);
+	rpc List(google.protobuf.Empty) returns (ListResponse);
+	rpc Insert(InsertRequest) returns (OperationResultResponse);
+	rpc Update(UpdateRequest) returns (OperationResultResponse);
+	rpc Delete(DeleteRequest) returns (OperationResultResponse);
+}
+
+// ----------------------------- Service Messages ------------------------------ //
+// Get
+message GetRequest {
+	int64 Id = 1;
+}
+
+message GetResponse {
+	Customer Customer = 1;
+}
+
+// List
+message ListResponse {
+	repeated Customer Items = 1;
+}
+
+// Insert
+message InsertRequest {
+	string Name = 1;
+	google.protobuf.Timestamp Birth = 2;
+	bool Active = 3;
+	Gender Gender = 4;
+	double CashBalance = 5;
+}
+
+// Update
+message UpdateRequest {
+	int64 Id = 1;
+	string Name = 2;
+	google.protobuf.Timestamp Birth = 3;
+	bool Active = 4;
+	Gender Gender = 5;
+	double CashBalance = 6;
+}
+
+// Delete
+message DeleteRequest {
+	int64 Id = 1;
+}
+
+// ------------------------------ Common Messages ------------------------------ //
+message Customer {
+	int64 Id = 1;
+	string Name = 2;
+	google.protobuf.Timestamp Birth = 3;
+	bool Active = 4;
+	Gender Gender = 5;
+	double CashBalance = 6;
+}
+
+message OperationResultResponse {
+	bool Success = 1;
+	string Reason = 2;
+}
+
+// ---------------------------------- Enums ---------------------------------- //
+enum Gender {
+    Male = 0;
+    Female = 1;
+}

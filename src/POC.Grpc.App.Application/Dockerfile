@@ -1,22 +1,21 @@
-FROM mcr.microsoft.com/dotnet/aspnet:5.0 AS base
+FROM mcr.microsoft.com/dotnet/aspnet:9.0 AS base
+USER $APP_UID
 WORKDIR /app
-EXPOSE 80
-EXPOSE 443
+EXPOSE 8080
+EXPOSE 8081
 
-FROM mcr.microsoft.com/dotnet/sdk:5.0 AS build
+FROM mcr.microsoft.com/dotnet/sdk:9.0 AS build
+ARG BUILD_CONFIGURATION=Release
 WORKDIR /src
 COPY ["src/POC.Grpc.App.Application/POC.Grpc.App.Application.csproj", "src/POC.Grpc.App.Application/"]
-COPY ["src/POC.Grpc.App.Domain/POC.Grpc.App.Domain.csproj", "src/POC.Grpc.App.Domain/"]
-COPY ["src/POC.Grpc.Lib.Contract/POC.Grpc.Lib.Contract.csproj", "src/POC.Grpc.Lib.Contract/"]
-COPY ["src/POC.Grpc.App.Infra.Service/POC.Grpc.App.Infra.Service.csproj", "src/POC.Grpc.App.Infra.Service/"]
-COPY ["src/POC.Grpc.App.Infra/POC.Grpc.App.Infra.csproj", "src/POC.Grpc.App.Infra/"]
-RUN dotnet restore "src/POC.Grpc.App.Application/POC.Grpc.App.Application.csproj"
+RUN dotnet restore "./src/POC.Grpc.App.Application/POC.Grpc.App.Application.csproj"
 COPY . .
 WORKDIR "/src/src/POC.Grpc.App.Application"
-RUN dotnet build "POC.Grpc.App.Application.csproj" -c Release -o /app/build
+RUN dotnet build "./POC.Grpc.App.Application.csproj" -c $BUILD_CONFIGURATION -o /app/build
 
 FROM build AS publish
-RUN dotnet publish "POC.Grpc.App.Application.csproj" -c Release -o /app/publish /p:UseAppHost=false
+ARG BUILD_CONFIGURATION=Release
+RUN dotnet publish "./POC.Grpc.App.Application.csproj" -c $BUILD_CONFIGURATION -o /app/publish /p:UseAppHost=false
 
 FROM base AS final
 WORKDIR /app

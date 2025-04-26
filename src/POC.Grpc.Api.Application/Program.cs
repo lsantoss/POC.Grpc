@@ -1,37 +1,20 @@
-using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Server.Kestrel.Core;
-using Microsoft.Extensions.Hosting;
-using System;
-using System.Net;
+using POC.Grpc.Api.Application.Extensions.ServiceCollectionExtensions;
+using POC.Grpc.Api.Application.Extensions.WebApplicationBuilderExtensions;
 
-namespace POC.Grpc.Api.Application
-{
-    public class Program
-    {
-        public static void Main(string[] args) => CreateHostBuilder(args).Build().Run();
+var builder = WebApplication.CreateBuilder(args);
+builder.UseKestrel();
+builder.Services.AddSwaggerGen();
+builder.Services.AddGrpc();
+builder.Services.AddHealthChecks();
+builder.Services.AddControllers();
 
-        public static IHostBuilder CreateHostBuilder(string[] args)
-        {
-            return Host.CreateDefaultBuilder(args).ConfigureWebHostDefaults(webBuilder =>
-            {
-                webBuilder.ConfigureKestrel(options =>
-                {
-                    var http1Port = int.Parse(Environment.GetEnvironmentVariable("HTTP1_PORT") ?? "80");
-                    var http2Port = int.Parse(Environment.GetEnvironmentVariable("HTTP2_PORT") ?? "8080");
-
-                    options.Listen(IPAddress.Any, http1Port, listenOptions =>
-                    {
-                        listenOptions.Protocols = HttpProtocols.Http1AndHttp2;
-                    });
-
-                    options.Listen(IPAddress.Any, http2Port, listenOptions =>
-                    {
-                        listenOptions.Protocols = HttpProtocols.Http2;
-                    });
-                });
-
-                webBuilder.UseStartup<Startup>();
-            });
-        }
-    }
-}
+var app = builder.Build();
+AppContext.SetSwitch("System.Net.Http.SocketsHttpHandler.Http2UnecryptedSupport", true);
+AppContext.SetSwitch("System.Net.Http.SocketsHttpHandler.Http2Support", true);
+app.UseSwaggerUI();
+app.UseHttpsRedirection();
+app.UseAuthorization();
+app.MapControllers();
+app.MapHealthChecks("v1/HealthCheck");
+app.MapGrpcServices();
+app.Run();
