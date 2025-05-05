@@ -4,13 +4,9 @@
 
 This application contains an example of using gRPC.
 
----
-
 ## Frameworks:
 
 - .Net 9
-
----
 
 ## Dependencies (only most important):
 
