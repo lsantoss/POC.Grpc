@@ -1,9 +1,10 @@
 {
 	"info": {
-		"_postman_id": "eff1fe5f-d7e7-4739-ab4a-6823f0658d6f",
-		"name": "POC.Grpc - Rest",
+		"_postman_id": "8e2bcd82-d7ce-4d7e-9b98-d118aedadb19",
+		"name": "POC.Grpc - rest",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-		"_exporter_id": "6583061"
+		"_exporter_id": "6583061",
+		"_collection_link": "https://winter-trinity-1662.postman.co/workspace/LSCode~858d76d1-8a70-4132-b139-c375f14abe42/collection/6583061-8e2bcd82-d7ce-4d7e-9b98-d118aedadb19?action=share&source=collection_link&creator=6583061"
 	},
 	"item": [
 		{

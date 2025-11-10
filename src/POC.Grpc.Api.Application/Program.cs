@@ -9,8 +9,6 @@ builder.Services.AddHealthChecks();
 builder.Services.AddControllers();
 
 var app = builder.Build();
-AppContext.SetSwitch("System.Net.Http.SocketsHttpHandler.Http2UnecryptedSupport", true);
-AppContext.SetSwitch("System.Net.Http.SocketsHttpHandler.Http2Support", true);
 app.UseSwaggerUI();
 app.UseHttpsRedirection();
 app.UseAuthorization();
